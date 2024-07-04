@@ -10,21 +10,23 @@ class OpportunityCard extends StatelessWidget {
       required this.stipend,
       required this.mode,
       required this.exp,
-      required this.type});
+      required this.type,
+      required this.daysPosted});
   Image dp;
-  final String role;
+  String role;
   String company;
   String location;
   String stipend;
   String mode;
   String type;
   int exp;
+  int daysPosted;
 
   @override
   Widget build(BuildContext context) {
     return Container(
       width: 398,
-      height: 246,
+      height: 235,
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(8),
@@ -167,7 +169,7 @@ class OpportunityCard extends StatelessWidget {
                 onPressed: () {},
                 style: ButtonStyle(
                   foregroundColor: WidgetStateProperty.all<Color>(Colors.white),
-                  backgroundColor: WidgetStateProperty.all<Color>(Colors.red),
+                  backgroundColor: WidgetStateProperty.all<Color>(const Color(0xFFC1272D)),
                   shape: WidgetStateProperty.all<RoundedRectangleBorder>(
                     RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(8.0), // Border radius
@@ -192,14 +194,16 @@ class OpportunityCard extends StatelessWidget {
           const SizedBox(
             height: 12,
           ),
-          const Row(
+          Row(
             children: [
-              Text(
+              const Icon(Icons.track_changes_outlined, color: Colors.green, size: 8,),
+              const Text(
                 'Actively Recruiting',
-                style: TextStyle(color: Colors.green),
+                style: TextStyle(color: Colors.green, fontSize: 8),
               ),
-              Spacer(),
-               Text('6 days ago', style: TextStyle(color: Colors.grey))
+              const Spacer(),
+              const Icon(Icons.av_timer, color: Colors.grey, size: 8,),
+               Text('$daysPosted days ago', style: const TextStyle(color: Colors.grey, fontSize: 8))
             ],
           )
         ],

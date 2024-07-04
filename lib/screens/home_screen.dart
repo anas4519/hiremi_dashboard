@@ -1,12 +1,31 @@
 import 'package:flutter/material.dart';
+import 'package:hiremi_dashboard/icons/my_icons_icons.dart';
+import 'package:hiremi_dashboard/screens/applies_screen.dart';
+import 'package:hiremi_dashboard/screens/profile_screen.dart';
+import 'package:hiremi_dashboard/screens/queries_screen.dart';
 import 'package:hiremi_dashboard/widgets/circle_row.dart';
+import 'package:hiremi_dashboard/widgets/nav_bar.dart';
 import 'package:hiremi_dashboard/widgets/oppurtunity_card.dart';
 
-class HomeScreen extends StatelessWidget {
+
+class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
   @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  int selectedIndex = 0;
+  List<Widget> screens = [
+    HomeScreen(),
+    AppliesScreen(), 
+    QueriesScreen(), 
+    ProfileScreen(),
+  ];
+  @override
   Widget build(BuildContext context) {
+    
     return Scaffold(
       appBar: AppBar(
         title: const Text(
@@ -19,6 +38,7 @@ class HomeScreen extends StatelessWidget {
         ],
         leading: IconButton(onPressed: () {}, icon: const Icon(Icons.menu)),
       ),
+      
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(16),
@@ -307,11 +327,24 @@ class HomeScreen extends StatelessWidget {
               const SizedBox(
                 height: 16,
               ),
-               OpportunityCard(dp: Image.asset('assets/Rectangle 57.png'), role: 'Human Resource Intern', company: 'Hiremi', location: 'Bhopal, Madhya Prades, India', stipend: '2,000-15,000', mode: 'Remote', type: 'Internship',exp: 1,)
+              OpportunityCard(
+                dp: Image.asset('assets/Rectangle 57.png'),
+                role: 'Human Resource Intern',
+                company: 'Hiremi',
+                location: 'Bhopal, Madhya Prades, India',
+                stipend: '2,000-15,000',
+                mode: 'Remote',
+                type: 'Internship',
+                exp: 1,
+                daysPosted: 6,
+              )
             ],
           ),
         ),
       ),
     );
   }
+}
+
+class HomeContent {
 }

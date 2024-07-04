@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:hiremi_dashboard/screens/home_screen.dart';
+
+import 'package:hiremi_dashboard/widgets/nav_bar.dart';
 
 void main() {
   runApp(const MyApp());
@@ -19,7 +20,9 @@ class MyApp extends StatelessWidget {
         fontFamily: GoogleFonts.poppins().fontFamily
       ),
       
-      home: const HomeScreen(),
+      home: Center(
+        child: CustomBottomNavBar(),
+      ),
       debugShowCheckedModeBanner: false,
     );
   }
