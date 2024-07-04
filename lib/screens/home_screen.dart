@@ -307,7 +307,7 @@ class HomeScreen extends StatelessWidget {
               const SizedBox(
                 height: 16,
               ),
-               OpportunityCard()
+               OpportunityCard(dp: Image.asset('assets/Rectangle 57.png'), role: 'Human Resource Intern', company: 'Hiremi', location: 'Bhopal, Madhya Prades, India', stipend: '2,000-15,000', mode: 'Remote', type: 'Internship',exp: 1,)
             ],
           ),
         ),

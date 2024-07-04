@@ -1,7 +1,24 @@
 import 'package:flutter/material.dart';
 
 class OpportunityCard extends StatelessWidget {
-  const OpportunityCard({super.key});
+  OpportunityCard(
+      {super.key,
+      required this.dp,
+      required this.role,
+      required this.company,
+      required this.location,
+      required this.stipend,
+      required this.mode,
+      required this.exp,
+      required this.type});
+  Image dp;
+  final String role;
+  String company;
+  String location;
+  String stipend;
+  String mode;
+  String type;
+  int exp;
 
   @override
   Widget build(BuildContext context) {
@@ -24,21 +41,21 @@ class OpportunityCard extends StatelessWidget {
               CircleAvatar(
                 radius: 30,
                 backgroundColor: Colors.white,
-                child: Image.asset('assets/Rectangle 57.png'),
+                child: dp,
               ),
               const SizedBox(width: 8),
-              const Column(
+              Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                children: const [
+                children: [
                   Text(
-                    'Human Resource Intern',
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+                    role,
+                    style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
                   ),
-                  SizedBox(height: 12),
+                  const SizedBox(height: 12),
                   Text(
-                    'Hiremi',
+                    company,
                     textAlign: TextAlign.start,
-                    style: TextStyle(fontSize: 12),
+                    style: const TextStyle(fontSize: 12),
                   ),
                 ],
               ),
@@ -46,28 +63,28 @@ class OpportunityCard extends StatelessWidget {
           ),
           const SizedBox(height: 10),
           // Location and stipend
-          const Column(
+          Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Row(
                 children: [
-                  Icon(Icons.location_on_rounded, color: Colors.grey, size: 14),
+                  const Icon(Icons.location_on_rounded, color: Colors.grey, size: 14),
                   const SizedBox(width: 5),
                   Text(
-                    'Bhopal, Madhya Pradesh, India',
-                    style: TextStyle(fontSize: 12),
+                    location,
+                    style: const TextStyle(fontSize: 12),
                   ),
                 ],
               ),
               const SizedBox(height: 5),
               Row(
                 children: [
-                  Icon(Icons.attach_money_rounded,
+                  const Icon(Icons.attach_money_rounded,
                       color: Colors.grey, size: 14),
                   const SizedBox(width: 5),
                   Text(
-                    '₹2,000 - ₹15,000',
-                    style: TextStyle(fontSize: 12),
+                    stipend,
+                    style: const TextStyle(fontSize: 12),
                   ),
                 ],
               ),
@@ -82,17 +99,17 @@ class OpportunityCard extends StatelessWidget {
                 decoration: const BoxDecoration(
                   color: Color(0xFFFFF6E5),
                 ),
-                child: const Row(
+                child: Row(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    Icon(
+                    const Icon(
                       Icons.work_rounded,
                       size: 8,
                       color: Colors.amber,
                     ),
-                    SizedBox(width: 5),
-                    Text('Remote',
-                        style: TextStyle(
+                    const SizedBox(width: 5),
+                    Text(mode,
+                        style: const TextStyle(
                             fontSize: 8, fontWeight: FontWeight.bold)),
                   ],
                 ),
@@ -106,17 +123,17 @@ class OpportunityCard extends StatelessWidget {
                 decoration: const BoxDecoration(
                   color: Color(0xFFFFEEE5),
                 ),
-                child: const Row(
+                child: Row(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    Icon(
+                    const Icon(
                       Icons.alarm,
                       size: 8,
                       color: Colors.red,
                     ),
-                    SizedBox(width: 5),
-                    Text('Internship',
-                        style: TextStyle(
+                    const SizedBox(width: 5),
+                    Text(type,
+                        style: const TextStyle(
                             fontSize: 8, fontWeight: FontWeight.bold)),
                   ],
                 ),
@@ -130,17 +147,17 @@ class OpportunityCard extends StatelessWidget {
                 decoration: const BoxDecoration(
                   color: Color(0xFFFFE5EE),
                 ),
-                child: const Row(
+                child: Row(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    Icon(
+                    const Icon(
                       Icons.work_rounded,
                       size: 8,
                       color: Color(0xFFED509B),
                     ),
-                    SizedBox(width: 5),
-                    Text('1 Year Exp',
-                        style: TextStyle(
+                    const SizedBox(width: 5),
+                    Text('$exp Year Exp',
+                        style: const TextStyle(
                             fontSize: 8, fontWeight: FontWeight.bold)),
                   ],
                 ),
@@ -157,22 +174,32 @@ class OpportunityCard extends StatelessWidget {
                     ),
                   ),
                 ),
-                child: const Text('Apply Now >', style: TextStyle(fontSize: 10),),
+                child: const Text(
+                  'Apply Now >',
+                  style: TextStyle(fontSize: 10),
+                ),
               )
             ],
           ),
-          const SizedBox(height: 12,),
+          const SizedBox(
+            height: 12,
+          ),
           Container(
             width: 368, // Length of the horizontal line
             height: 1, // Thickness of the line
             color: Colors.grey, // Color of the line
           ),
-          const SizedBox(height: 12,),
+          const SizedBox(
+            height: 12,
+          ),
           const Row(
             children: [
-              const Text('Actively Recruiting', style: TextStyle(color: Colors.green),),
+              Text(
+                'Actively Recruiting',
+                style: TextStyle(color: Colors.green),
+              ),
               Spacer(),
-              const Text('6 days ago', style: TextStyle(color: Colors.grey))
+               Text('6 days ago', style: TextStyle(color: Colors.grey))
             ],
           )
         ],
