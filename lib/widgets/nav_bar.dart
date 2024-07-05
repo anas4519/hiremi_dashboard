@@ -5,6 +5,8 @@ import 'package:hiremi_dashboard/screens/profile_screen.dart';
 import 'package:hiremi_dashboard/screens/queries_screen.dart';
 
 class CustomBottomNavBar extends StatefulWidget {
+  const CustomBottomNavBar({super.key});
+
   @override
   _CustomBottomNavBarState createState() => _CustomBottomNavBarState();
 }
@@ -62,16 +64,16 @@ class _CustomBottomNavBarState extends State<CustomBottomNavBar> {
             left: MediaQuery.of(context).size.width / 2 - 30,
             child: const CircleAvatar(
               radius: 30,
-              backgroundColor: Colors.red,
+              backgroundColor: Color(0xFFC1272D),
               child: CircleAvatar(
                 radius: 28,
                 backgroundColor: Colors.white,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Icon(Icons.all_inclusive, color: Colors.red, size: 20),
+                    Icon(Icons.all_inclusive, color: Color(0xFFC1272D), size: 20),
                     Text('HIREMI', style: TextStyle(color: Colors.black, fontSize: 10)),
-                    Text('360', style: TextStyle(color: Colors.red, fontSize: 8)),
+                    Text('360', style: TextStyle(color: Color(0xFFC1272D), fontSize: 8)),
                   ],
                 ),
               ),

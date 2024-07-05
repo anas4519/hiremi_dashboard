@@ -12,7 +12,7 @@ class CircleRow extends StatelessWidget {
           width:15,
           height: 15,
           decoration: const BoxDecoration(
-            color: Colors.red, // Color for the filled circle
+            color: Color(0xFFC1272D), // Color for the filled circle
             shape: BoxShape.circle,
           ),
         ),
