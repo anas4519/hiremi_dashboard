@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:hiremi_dashboard/icons/my_icons_icons.dart';
 import 'package:hiremi_dashboard/screens/applies_screen.dart';
 import 'package:hiremi_dashboard/screens/profile_screen.dart';
 import 'package:hiremi_dashboard/screens/queries_screen.dart';
 import 'package:hiremi_dashboard/widgets/circle_row.dart';
-import 'package:hiremi_dashboard/widgets/nav_bar.dart';
 import 'package:hiremi_dashboard/widgets/oppurtunity_card.dart';
-
+import 'package:hiremi_dashboard/widgets/verification_status.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -19,13 +17,12 @@ class _HomeScreenState extends State<HomeScreen> {
   int selectedIndex = 0;
   List<Widget> screens = [
     HomeScreen(),
-    AppliesScreen(), 
-    QueriesScreen(), 
+    AppliesScreen(),
+    QueriesScreen(),
     ProfileScreen(),
   ];
   @override
   Widget build(BuildContext context) {
-    
     return Scaffold(
       appBar: AppBar(
         title: const Text(
@@ -38,126 +35,13 @@ class _HomeScreenState extends State<HomeScreen> {
         ],
         leading: IconButton(onPressed: () {}, icon: const Icon(Icons.menu)),
       ),
-      
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(16),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Container(
-                width: 398,
-                height: 202.82,
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(13),
-                    border: Border.all(color: Colors.grey)),
-                child: Column(
-                  children: [
-                    Image.asset('assets/Frame 203.png'),
-                    const SizedBox(
-                      height: 16.48,
-                    ),
-                    Row(
-                      children: [
-                        //harsh pawar
-                        Column(
-                          children: [
-                            Row(
-                              children: [
-                                const SizedBox(
-                                  width: 16.78,
-                                ),
-                                const Text(
-                                  'Harsh Pawar',
-                                  style: TextStyle(fontWeight: FontWeight.bold),
-                                ),
-                                const SizedBox(
-                                  width: 8,
-                                ),
-                                Container(
-                                  width: 90,
-                                  height: 30,
-                                  decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(50),
-                                      border: Border.all(
-                                        color: Colors.red,
-                                      )),
-                                  child: const Padding(
-                                    padding: EdgeInsets.all(6.0),
-                                    child: Row(
-                                      children: [
-                                        Icon(
-                                          Icons.check_circle_outline_sharp,
-                                          color: Colors.red,
-                                          size: 10,
-                                        ),
-                                        Text(
-                                          'Not verified',
-                                          style: TextStyle(
-                                              color: Colors.red, fontSize: 10),
-                                        )
-                                      ],
-                                    ),
-                                  ),
-                                )
-                              ],
-                            ),
-                            const Row(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              children: [
-                                Icon(
-                                  Icons.fingerprint,
-                                  color: Colors.red,
-                                ),
-                                Text(
-                                  'App ID: ',
-                                  style: TextStyle(color: Colors.red),
-                                ),
-                                Text('-- -- -- --')
-                              ],
-                            )
-                          ],
-                        ),
-                        const SizedBox(
-                          width: 50,
-                        ),
-                        Center(
-                          child: Container(
-                            height: 30,
-                            decoration: BoxDecoration(
-                              color: Colors.green,
-                              borderRadius: BorderRadius.circular(
-                                  10), // Adjust the radius as needed
-                            ),
-                            child: TextButton(
-                              onPressed: () {
-                                // Add your button click logic here
-                              },
-                              child: const Row(
-                                children: [
-                                  Icon(
-                                    Icons.check_circle,
-                                    color: Colors.white,
-                                    size: 10,
-                                  ),
-                                  SizedBox(
-                                    width: 5,
-                                  ),
-                                  Text(
-                                    'Verify Now >',
-                                    style: TextStyle(
-                                        color: Colors.white, fontSize: 10),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-                        )
-                      ],
-                    )
-                  ],
-                ),
-              ),
+              VerificationStatus(),
               const SizedBox(
                 height: 20,
               ),
@@ -344,7 +228,4 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
     );
   }
-}
-
-class HomeContent {
 }

@@ -89,7 +89,7 @@ class _CustomBottomNavBarState extends State<CustomBottomNavBar> {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          Icon(icon, color: isSelected ? Colors.red : Colors.black),
+          Icon(icon, color: isSelected ? const Color(0xFFC1272D) : Colors.black),
           const SizedBox(height: 4),
           Text(
             label,

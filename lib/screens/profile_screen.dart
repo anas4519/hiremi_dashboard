@@ -31,10 +31,12 @@ class ProfileScreen extends StatelessWidget {
                 children: [
                   CircularPercentIndicator(
                     radius: 40,
-                    lineWidth: 0,
+                    lineWidth: 4,
                     percent: percent,
                     center: Text('$per%'),
-                    progressColor: percent > 0.5 ? Colors.green : Colors.red,
+                    progressColor: Colors.green,
+                    
+                    backgroundColor: Colors.transparent,
                   ),
                   const Text(
                     'Harsh Pawar',
