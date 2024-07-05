@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hiremi_dashboard/screens/applies_screen.dart';
 import 'package:hiremi_dashboard/screens/profile_screen.dart';
 import 'package:hiremi_dashboard/screens/queries_screen.dart';
+import 'package:hiremi_dashboard/widgets/banners.dart';
 import 'package:hiremi_dashboard/widgets/circle_row.dart';
 import 'package:hiremi_dashboard/widgets/oppurtunity_card.dart';
 import 'package:hiremi_dashboard/widgets/verification_status.dart';
@@ -16,10 +17,10 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   int selectedIndex = 0;
   List<Widget> screens = [
-    HomeScreen(),
-    AppliesScreen(),
-    QueriesScreen(),
-    ProfileScreen(),
+    const HomeScreen(),
+    const AppliesScreen(),
+    const QueriesScreen(),
+    const ProfileScreen(),
   ];
   @override
   Widget build(BuildContext context) {
@@ -41,27 +42,23 @@ class _HomeScreenState extends State<HomeScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              VerificationStatus(),
+              const VerificationStatus(),
               const SizedBox(
                 height: 20,
               ),
-              Column(
+              const Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Text(
+                  Text(
                     'Explore hiremi',
                     style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
                   ),
-                  const SizedBox(height: 16),
-                  Container(
-                    width: 398,
-                    height: 123.66,
-                    child: Image.asset('assets/Hiremi Banner.png'),
-                  ),
-                  const SizedBox(
+                  SizedBox(height: 16),
+                  AdBanner(),
+                  SizedBox(
                     height: 16,
                   ),
-                  const CircleRow()
+                  CircleRow()
                 ],
               ),
 
