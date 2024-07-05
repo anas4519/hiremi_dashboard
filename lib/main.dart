@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
         fontFamily: GoogleFonts.poppins().fontFamily
       ),
       
-      home: Center(
+      home: const Center(
         child: CustomBottomNavBar(),
       ),
       debugShowCheckedModeBanner: false,

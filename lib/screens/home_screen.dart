@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:hiremi_dashboard/screens/applies_screen.dart';
+import 'package:hiremi_dashboard/screens/notification_screen.dart';
 import 'package:hiremi_dashboard/screens/profile_screen.dart';
 import 'package:hiremi_dashboard/screens/queries_screen.dart';
 import 'package:hiremi_dashboard/widgets/banners.dart';
 import 'package:hiremi_dashboard/widgets/circle_row.dart';
+import 'package:hiremi_dashboard/widgets/drawer_child.dart';
 import 'package:hiremi_dashboard/widgets/oppurtunity_card.dart';
 import 'package:hiremi_dashboard/widgets/verification_status.dart';
 
@@ -25,6 +27,9 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: const Drawer(
+        child: DrawerChild()
+      ),
       appBar: AppBar(
         title: const Text(
           "Hiremi's Home",
@@ -32,9 +37,11 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
         centerTitle: true,
         actions: [
-          IconButton(onPressed: () {}, icon: const Icon(Icons.notifications))
+          IconButton(onPressed: () {
+            Navigator.of(context).push(MaterialPageRoute(builder: (ctx)=> NotificationScreen()));
+          }, icon: const Icon(Icons.notifications))
         ],
-        leading: IconButton(onPressed: () {}, icon: const Icon(Icons.menu)),
+        
       ),
       body: SingleChildScrollView(
         child: Padding(

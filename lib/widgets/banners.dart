@@ -17,7 +17,7 @@ class AdBanner extends StatelessWidget {
           end: Alignment.centerRight,
         ),
       ),
-      width: MediaQuery.of(context).size.width * 0.9,
+      width: MediaQuery.of(context).size.width * 0.95,
       height: 123.66,
       child: Padding(
         padding: const EdgeInsets.all(16),

@@ -89,12 +89,146 @@ class ProfileScreen extends StatelessWidget {
                   ),
                 ),
                 child: const Text(
-                  'Verify Now >',
+                  'Edit Profile >',
                   style: TextStyle(fontSize: 10),
                 ),
-              )
+              ),
+              const SizedBox(height: 40,)
                 ],
               ),
+              
+            ),
+            
+            Center(
+              child: Container(
+                width: MediaQuery.of(context).size.width*0.9,
+                height: 1,
+                decoration: const BoxDecoration(
+                  color: Colors.grey
+                ),
+              ),
+            ),
+            Column(
+              children: [
+                const SizedBox(height: 40,),
+                Row(
+                  children: [
+                    Container(
+                      height: 38,
+                      width: 38,
+                      decoration: BoxDecoration(
+                        color: const Color(0xFFFBEEEE),
+                        borderRadius: BorderRadius.circular(8)
+                      ),
+                      child: const Icon(
+                        Icons.settings,
+                        color: Color(0xFFC1272D),
+                      ),
+                    ),
+                    const SizedBox(width: 8,),
+                    const Text('Settings', style: TextStyle(fontSize: 16),),
+                    const Spacer(),
+                    Container(
+                      height: 32,
+                      width: 32,
+                      decoration: BoxDecoration(
+                        color: const Color(0xFFECF5FF),
+                        borderRadius: BorderRadius.circular(16)
+                      ),
+                      child: TextButton(onPressed: (){}, child: const Text('>', style: TextStyle(fontSize: 10.11, fontWeight: FontWeight.bold),))
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 16,),
+                 Row(
+                  children: [
+                    Container(
+                      height: 38,
+                      width: 38,
+                      decoration: BoxDecoration(
+                        color: const Color(0xFFFBEEEE),
+                        borderRadius: BorderRadius.circular(8)
+                      ),
+                      child: const Icon(
+                        Icons.lock_open_rounded,
+                        color: Color(0xFFC1272D),
+                      ),
+                    ),
+                    const SizedBox(width: 8,),
+                    const Text('Change Password', style: TextStyle(fontSize: 16),),
+                    const Spacer(),
+                    Container(
+                      height: 32,
+                      width: 32,
+                      decoration: BoxDecoration(
+                        color: const Color(0xFFECF5FF),
+                        borderRadius: BorderRadius.circular(16)
+                      ),
+                      child: TextButton(onPressed: (){}, child: const Text('>', style: TextStyle(fontSize: 10.11, fontWeight: FontWeight.bold),))
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 16,),
+                 Row(
+                  children: [
+                    Container(
+                      height: 38,
+                      width: 38,
+                      decoration: BoxDecoration(
+                        color: const Color(0xFFFBEEEE),
+                        borderRadius: BorderRadius.circular(8)
+                      ),
+                      child: const Icon(
+                        Icons.info,
+                        color: Color(0xFFC1272D),
+                      ),
+                    ),
+                    const SizedBox(width: 8,),
+                    const Text('About App', style: TextStyle(fontSize: 16),),
+                    const Spacer(),
+                    Container(
+                      height: 32,
+                      width: 32,
+                      decoration: BoxDecoration(
+                        color: const Color(0xFFECF5FF),
+                        borderRadius: BorderRadius.circular(16)
+                      ),
+                      child: TextButton(onPressed: (){}, child: const Text('>', style: TextStyle(fontSize: 10.11, fontWeight: FontWeight.bold),))
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 16,),
+                 Row(
+                  children: [
+                    Container(
+                      height: 38,
+                      width: 38,
+                      decoration: BoxDecoration(
+                        color: const Color(0xFFFBEEEE),
+                        borderRadius: BorderRadius.circular(8)
+                      ),
+                      child: const Icon(
+                        Icons.support_agent_rounded,
+                        color: Color(0xFFC1272D),
+                      ),
+                    ),
+                    const SizedBox(width: 8,),
+                    const Text('Help and Support', style: TextStyle(fontSize: 16),),
+                    const Spacer(),
+                    Container(
+                      height: 32,
+                      width: 32,
+                      decoration: BoxDecoration(
+                        color: const Color(0xFFECF5FF),
+                        borderRadius: BorderRadius.circular(16)
+                      ),
+                      child: TextButton(onPressed: (){}, child: const Text('>', style: TextStyle(fontSize: 10.11, fontWeight: FontWeight.bold),))
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 16,),
+
+              ],
             )
           ],
         ),

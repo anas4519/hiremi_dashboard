@@ -25,7 +25,7 @@ class OpportunityCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 398,
+      width: MediaQuery.of(context).size.width*0.95,
       height: 235,
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(

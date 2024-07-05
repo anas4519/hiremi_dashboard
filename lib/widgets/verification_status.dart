@@ -7,7 +7,7 @@ class VerificationStatus extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-                width: MediaQuery.of(context).size.width * 0.9,
+                width: MediaQuery.of(context).size.width * 0.95,
                 height: 202.82,
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(13),
@@ -15,7 +15,7 @@ class VerificationStatus extends StatelessWidget {
                 child: Column(
                   children: [
                     Container(
-                      width: MediaQuery.of(context).size.width * 0.9,
+                      width: MediaQuery.of(context).size.width * 0.95,
                       height: 121.82,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(8),
@@ -217,7 +217,7 @@ class VerificationStatus extends StatelessWidget {
                                                       BorderRadius.circular(
                                                           14)),
                                               child: const Icon(
-                                                Icons.payment,
+                                                Icons.account_balance,
                                                 color: Color(0xFFC1272D),
                                                 size: 12.11,
                                               ),
