@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import 'package:hiremi_dashboard/widgets/nav_bar.dart';
+import 'package:hiremi_dashboard/widgets/new_navBar.dart';
 
 void main() {
   runApp(const MyApp());
@@ -21,7 +22,7 @@ class MyApp extends StatelessWidget {
       ),
       
       home: const Center(
-        child: CustomBottomNavBar(),
+        child: NewNavbar(),
       ),
       debugShowCheckedModeBanner: false,
     );
