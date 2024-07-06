@@ -25,8 +25,8 @@ class OpportunityCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: MediaQuery.of(context).size.width*0.95,
-      height: 235,
+      width: MediaQuery.of(context).size.width * 0.95,
+      height: 207,
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(8),
@@ -40,10 +40,18 @@ class OpportunityCard extends StatelessWidget {
           Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              CircleAvatar(
-                radius: 30,
-                backgroundColor: Colors.white,
-                child: dp,
+              Container(
+                decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    border: Border.all(
+                      color: Colors.grey[300]!, // color of the frame
+                      width: 3, // width of the frame
+                    )),
+                child: CircleAvatar(
+                  radius: 27,
+                  backgroundColor: Colors.white,
+                  child: dp,
+                ),
               ),
               const SizedBox(width: 8),
               Column(
@@ -51,13 +59,14 @@ class OpportunityCard extends StatelessWidget {
                 children: [
                   Text(
                     role,
-                    style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+                    style: const TextStyle(
+                        fontWeight: FontWeight.bold, fontSize: 16),
                   ),
                   const SizedBox(height: 12),
                   Text(
                     company,
                     textAlign: TextAlign.start,
-                    style: const TextStyle(fontSize: 12),
+                    style: const TextStyle(fontSize: 8),
                   ),
                 ],
               ),
@@ -70,29 +79,30 @@ class OpportunityCard extends StatelessWidget {
             children: [
               Row(
                 children: [
-                  const Icon(Icons.location_on_rounded, color: Colors.grey, size: 14),
+                  const Icon(Icons.location_on_rounded,
+                      color: Colors.grey, size: 8),
                   const SizedBox(width: 5),
                   Text(
                     location,
-                    style: const TextStyle(fontSize: 12),
+                    style: const TextStyle(fontSize: 8),
                   ),
                 ],
               ),
               const SizedBox(height: 5),
               Row(
                 children: [
-                  const Icon(Icons.attach_money_rounded,
-                      color: Colors.grey, size: 14),
+                  const Icon(Icons.currency_rupee,
+                      color: Colors.grey, size: 8),
                   const SizedBox(width: 5),
                   Text(
                     stipend,
-                    style: const TextStyle(fontSize: 12),
+                    style: const TextStyle(fontSize: 8),
                   ),
                 ],
               ),
             ],
           ),
-          const SizedBox(height: 8),
+          const SizedBox(height: 4),
           Row(
             children: [
               Container(
@@ -169,7 +179,8 @@ class OpportunityCard extends StatelessWidget {
                 onPressed: () {},
                 style: ButtonStyle(
                   foregroundColor: WidgetStateProperty.all<Color>(Colors.white),
-                  backgroundColor: WidgetStateProperty.all<Color>(const Color(0xFFC1272D)),
+                  backgroundColor:
+                      WidgetStateProperty.all<Color>(const Color(0xFFC1272D)),
                   shape: WidgetStateProperty.all<RoundedRectangleBorder>(
                     RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(8.0), // Border radius
@@ -184,7 +195,7 @@ class OpportunityCard extends StatelessWidget {
             ],
           ),
           const SizedBox(
-            height: 12,
+            height: 6,
           ),
           Container(
             width: 368, // Length of the horizontal line
@@ -192,18 +203,27 @@ class OpportunityCard extends StatelessWidget {
             color: Colors.grey, // Color of the line
           ),
           const SizedBox(
-            height: 12,
+            height: 6,
           ),
           Row(
             children: [
-              const Icon(Icons.track_changes_outlined, color: Colors.green, size: 8,),
+              const Icon(
+                Icons.track_changes_outlined,
+                color: Colors.green,
+                size: 8,
+              ),
               const Text(
                 'Actively Recruiting',
                 style: TextStyle(color: Colors.green, fontSize: 8),
               ),
               const Spacer(),
-              const Icon(Icons.av_timer, color: Colors.grey, size: 8,),
-               Text('$daysPosted days ago', style: const TextStyle(color: Colors.grey, fontSize: 8))
+              const Icon(
+                Icons.av_timer,
+                color: Colors.grey,
+                size: 8,
+              ),
+              Text('$daysPosted days ago',
+                  style: const TextStyle(color: Colors.grey, fontSize: 8))
             ],
           )
         ],

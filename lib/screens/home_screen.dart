@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hiremi_dashboard/screens/applies_screen.dart';
+import 'package:hiremi_dashboard/screens/internships.dart';
 import 'package:hiremi_dashboard/screens/notification_screen.dart';
 import 'package:hiremi_dashboard/screens/profile_screen.dart';
 import 'package:hiremi_dashboard/screens/queries_screen.dart';
@@ -94,7 +95,9 @@ class _HomeScreenState extends State<HomeScreen> {
                           8), // Add rounded corners if needed
                     ),
                     child: TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.of(context).push(MaterialPageRoute(builder: (ctx)=> const InternshipsScreen()));
+                      },
                       child: Row(
                         children: [
                           Container(
