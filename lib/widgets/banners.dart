@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 
 class AdBanner extends StatelessWidget {
-  const AdBanner({super.key});
+  
+  AdBanner({super.key, required this.isVerified});
+  bool isVerified;
+  
 
   @override
   Widget build(BuildContext context) {
@@ -77,19 +80,19 @@ class AdBanner extends StatelessWidget {
                     onPressed: () {
                       // Add your button click logic here
                     },
-                    child: const Row(
+                    child:  Row(
                       children: [
-                        Icon(
+                        const Icon(
                           Icons.check_circle,
                           color: Colors.white,
                           size: 6.5,
                         ),
-                        SizedBox(
+                        const SizedBox(
                           width: 5,
                         ),
                         Text(
-                          'Verify Now >',
-                          style: TextStyle(color: Colors.white, fontSize: 7.59),
+                          isVerified? 'Verfied':'Verify Now >',
+                          style: const TextStyle(color: Colors.white, fontSize: 7.59),
                         ),
                       ],
                     ),

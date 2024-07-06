@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:hiremi_dashboard/screens/applies_screen.dart';
 import 'package:hiremi_dashboard/screens/internships.dart';
 import 'package:hiremi_dashboard/screens/notification_screen.dart';
@@ -8,10 +9,14 @@ import 'package:hiremi_dashboard/widgets/banners.dart';
 import 'package:hiremi_dashboard/widgets/circle_row.dart';
 import 'package:hiremi_dashboard/widgets/drawer_child.dart';
 import 'package:hiremi_dashboard/widgets/oppurtunity_card.dart';
+import 'package:hiremi_dashboard/widgets/user_info.dart';
 import 'package:hiremi_dashboard/widgets/verification_status.dart';
 
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key});
+    final bool isVerified;
+
+    const HomeScreen({super.key, required this.isVerified});
+    
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
@@ -19,14 +24,15 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   int selectedIndex = 0;
-  List<Widget> screens = [
-    const HomeScreen(),
-    const AppliesScreen(),
-    const QueriesScreen(),
-    const ProfileScreen(),
-  ];
+  // List<Widget> screens = [
+  //   const HomeScreen(),
+  //   const AppliesScreen(),
+  //   const QueriesScreen(),
+  //   const ProfileScreen(),
+  // ];
   @override
   Widget build(BuildContext context) {
+    
     return Scaffold(
       drawer: const Drawer(
         child: DrawerChild()
@@ -39,7 +45,7 @@ class _HomeScreenState extends State<HomeScreen> {
         centerTitle: true,
         actions: [
           IconButton(onPressed: () {
-            Navigator.of(context).push(MaterialPageRoute(builder: (ctx)=> NotificationScreen()));
+            Navigator.of(context).push(MaterialPageRoute(builder: (ctx)=> const NotificationScreen()));
           }, icon: const Icon(Icons.notifications))
         ],
         
@@ -50,23 +56,25 @@ class _HomeScreenState extends State<HomeScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const VerificationStatus(),
+              if(!widget.isVerified) const VerificationStatus(),
+              if(widget.isVerified) const UserInfo(),
               const SizedBox(
                 height: 20,
               ),
-              const Column(
+              Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
+
+                  const Text(
                     'Explore hiremi',
                     style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
                   ),
-                  SizedBox(height: 16),
-                  AdBanner(),
-                  SizedBox(
+                  const SizedBox(height: 16),
+                  AdBanner(isVerified: widget.isVerified,),
+                  const SizedBox(
                     height: 16,
                   ),
-                  CircleRow()
+                  const CircleRow()
                 ],
               ),
 
@@ -228,7 +236,35 @@ class _HomeScreenState extends State<HomeScreen> {
                 type: 'Internship',
                 exp: 1,
                 daysPosted: 6,
-              )
+              ),
+              const SizedBox(
+                  height: 8,
+                ),
+                OpportunityCard(
+                  dp: Image.asset('assets/crtd1 1.png'),
+                  role: 'Social Media Intern',
+                  company: 'CRTD Technologies',
+                  location: 'Bhopal, Madhya Pradesh, India',
+                  stipend: '2,000-15,000',
+                  mode: 'Remote',
+                  type: 'Internship',
+                  exp: 1,
+                  daysPosted: 6,
+                ),
+                const SizedBox(
+                  height: 8,
+                ),
+                OpportunityCard(
+                  dp: Image.asset('assets/Rectangle 57.png'),
+                  role: 'Data Science Intern',
+                  company: 'Hiremi',
+                  location: 'Bhopal, Madhya Pradesh, India',
+                  stipend: '2,000-15,000',
+                  mode: 'Remote',
+                  type: 'Internship',
+                  exp: 1,
+                  daysPosted: 6,
+                ),
             ],
           ),
         ),

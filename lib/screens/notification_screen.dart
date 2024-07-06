@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:hiremi_dashboard/widgets/drawer_child.dart';
 
 class NotificationScreen extends StatelessWidget {
   const NotificationScreen({super.key});

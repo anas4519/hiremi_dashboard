@@ -17,7 +17,7 @@ class _NewNavbarState extends State<NewNavbar> {
   final PageController _pageController = PageController();
 
   final List<Widget> _pages = [
-    const HomeScreen(),
+    const HomeScreen(isVerified: true,),
     const AppliesScreen(),
     const QueriesScreen(),
     const ProfileScreen(),
