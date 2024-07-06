@@ -31,7 +31,7 @@ class ProfileScreen extends StatelessWidget {
                 children: [
                   CircularPercentIndicator(
                     radius: 40,
-                    lineWidth: 4,
+                    lineWidth: 6,
                     percent: percent,
                     center: Text('$per%'),
                     progressColor: Colors.green,

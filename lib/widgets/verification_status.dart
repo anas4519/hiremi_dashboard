@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hiremi_dashboard/screens/verify.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
 
 class VerificationStatus extends StatelessWidget {
@@ -32,18 +33,26 @@ class VerificationStatus extends StatelessWidget {
                         padding: const EdgeInsets.all(16),
                         child: Row(
                           children: [
-                            CircularPercentIndicator(
-                              radius: 40,
-                              lineWidth: 4,
-                              percent: 0.25,
-                              center: const Text(
-                                '25%',
-                                style: TextStyle(
-                                    color: Colors.green,
-                                    fontWeight: FontWeight.bold),
+                            Container(
+                              height: 80,
+                              width: 80,
+                              decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(40)
                               ),
-                              progressColor: Colors.green,
-                              backgroundColor: Colors.transparent,
+                              child: CircularPercentIndicator(
+                                radius: 40,
+                                lineWidth: 6,
+                                percent: 0.25,
+                                center: const Text(
+                                  '25%',
+                                  style: TextStyle(
+                                      color: Colors.green,
+                                      fontWeight: FontWeight.bold),
+                                ),
+                                progressColor: Colors.green,
+                                backgroundColor: Colors.transparent,
+                              ),
                             ),
                             const SizedBox(
                               width: 12,
@@ -322,7 +331,7 @@ class VerificationStatus extends StatelessWidget {
                             ),
                             child: TextButton(
                               onPressed: () {
-                                // Add your button click logic here
+                                Navigator.of(context).push(MaterialPageRoute(builder: (ctx)=> VerificationScreen()));
                               },
                               child: const Row(
                                 children: [
