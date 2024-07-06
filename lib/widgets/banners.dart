@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 
 class AdBanner extends StatelessWidget {
-  
   AdBanner({super.key, required this.isVerified});
   bool isVerified;
-  
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +19,7 @@ class AdBanner extends StatelessWidget {
         ),
       ),
       width: MediaQuery.of(context).size.width * 0.95,
-      height: 123.66,
+      height: MediaQuery.of(context).size.height * 0.165,
       child: Padding(
         padding: const EdgeInsets.all(16),
         child: Row(
@@ -33,13 +31,11 @@ class AdBanner extends StatelessWidget {
                   children: [
                     Text(
                       'Get ',
-                      style:
-                          TextStyle(fontSize: 11.69, color: Color(0xFF022A72)),
+                      style: TextStyle(fontSize: 11.69, color: Color(0xFF022A72)),
                     ),
                     Text(
                       'Hiremi ',
-                      style:
-                          TextStyle(fontSize: 11.69, color: Color(0xFFC1272D)),
+                      style: TextStyle(fontSize: 11.69, color: Color(0xFFC1272D)),
                     ),
                     Text(
                       'Verified ',
@@ -47,13 +43,11 @@ class AdBanner extends StatelessWidget {
                     ),
                     Text(
                       '& ',
-                      style:
-                          TextStyle(fontSize: 11.69, color: Color(0xFF022A72)),
+                      style: TextStyle(fontSize: 11.69, color: Color(0xFF022A72)),
                     ),
                     Text(
                       'Apply ',
-                      style:
-                          TextStyle(fontSize: 11.69, color: Color(0xFFEB8D2E)),
+                      style: TextStyle(fontSize: 11.69, color: Color(0xFFEB8D2E)),
                     ),
                   ],
                 ),
@@ -69,12 +63,10 @@ class AdBanner extends StatelessWidget {
                 ),
                 const SizedBox(height: 4,),
                 Container(
-                  height: 26,
-                  
+                  height: MediaQuery.of(context).size.height * 0.035,
                   decoration: BoxDecoration(
                     color: Colors.blue,
-                    borderRadius: BorderRadius.circular(
-                        20), // Adjust the radius as needed
+                    borderRadius: BorderRadius.circular(20),
                   ),
                   child: TextButton(
                     onPressed: () {
@@ -85,14 +77,14 @@ class AdBanner extends StatelessWidget {
                         const Icon(
                           Icons.check_circle,
                           color: Colors.white,
-                          size: 6.5,
+                          size: 12,
                         ),
                         const SizedBox(
                           width: 5,
                         ),
                         Text(
-                          isVerified? 'Verfied':'Verify Now >',
-                          style: const TextStyle(color: Colors.white, fontSize: 7.59),
+                          isVerified ? 'Verified' : 'Verify Now >',
+                          style: const TextStyle(color: Colors.white, fontSize: 12),
                         ),
                       ],
                     ),
@@ -101,10 +93,9 @@ class AdBanner extends StatelessWidget {
                 const SizedBox(height: 2,),
                 const Text(
                   'T&C Apply',
-                  style: TextStyle(fontSize: 5.34, color: Color(0xFF022A72)),
+                  style: TextStyle(fontSize: 8, color: Color(0xFF022A72)),
                   textAlign: TextAlign.start,
                 ),
-
               ],
             ),
             const Spacer(),

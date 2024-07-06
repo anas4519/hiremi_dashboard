@@ -6,8 +6,8 @@ class ProfileScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final percent = 0.25;
-    final per = percent * 100;
+    const percent = 0.25;
+    const per = percent * 100;
     return Scaffold(
       appBar: AppBar(
         title: const Text(

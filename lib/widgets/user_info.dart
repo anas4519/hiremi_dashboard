@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-
 class UserInfo extends StatelessWidget {
   const UserInfo({super.key});
 
@@ -8,10 +7,10 @@ class UserInfo extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        const CircleAvatar(
-          backgroundColor: Color(0xFFFBECEC),
-          radius: 30,
-          child: Icon(
+        CircleAvatar(
+          backgroundColor: const Color(0xFFFBECEC),
+          radius: MediaQuery.of(context).size.width * 0.07,
+          child: const Icon(
             Icons.person,
             color: Color(0xFFC1272D),
             size: 18.86,
@@ -49,26 +48,28 @@ class UserInfo extends StatelessWidget {
         ),
         const Spacer(),
         Container(
-                    height: 26,
-                    width: 73.39,
-                    decoration: BoxDecoration(
-                        color: Colors.green,
-                        borderRadius: BorderRadius.circular(8)),
-                    child: Center(
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Image.asset('assets/new_releases (1).png'),
-                          const Text(
-                            'Verfied',
-                            style:
-                                TextStyle(color: Colors.white, fontSize: 8.42),
-                          )
-                        ],
-                      ),
-                    ))
+          height: MediaQuery.of(context).size.width * 0.08,
+          width: MediaQuery.of(context).size.width * 0.17,
+          decoration: BoxDecoration(
+            color: Colors.green,
+            borderRadius: BorderRadius.circular(8),
+          ),
+          child: Center(
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Image.asset('assets/new_releases (1).png'),
+                SizedBox(width: MediaQuery.of(context).size.width * 0.01,),
+                const Text(
+                  'Verfied',
+
+                  style: TextStyle(color: Colors.white, fontSize: 8.42),
+                ),
+              ],
+            ),
+          ),
+        ),
       ],
     );
   }
 }
-

@@ -1,32 +1,34 @@
 import 'package:flutter/material.dart';
 
 class OpportunityCard extends StatelessWidget {
-  OpportunityCard(
-      {super.key,
-      required this.dp,
-      required this.role,
-      required this.company,
-      required this.location,
-      required this.stipend,
-      required this.mode,
-      required this.exp,
-      required this.type,
-      required this.daysPosted});
-  Image dp;
-  String role;
-  String company;
-  String location;
-  String stipend;
-  String mode;
-  String type;
-  int exp;
-  int daysPosted;
+  const OpportunityCard({
+    super.key,
+    required this.dp,
+    required this.role,
+    required this.company,
+    required this.location,
+    required this.stipend,
+    required this.mode,
+    required this.exp,
+    required this.type,
+    required this.daysPosted,
+  });
+
+  final Image dp;
+  final String role;
+  final String company;
+  final String location;
+  final String stipend;
+  final String mode;
+  final int exp;
+  final String type;
+  final int daysPosted;
 
   @override
   Widget build(BuildContext context) {
     return Container(
       width: MediaQuery.of(context).size.width * 0.95,
-      height: 207,
+      height: MediaQuery.of(context).size.height * 0.219,
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(8),
@@ -42,13 +44,14 @@ class OpportunityCard extends StatelessWidget {
             children: [
               Container(
                 decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    border: Border.all(
-                      color: Colors.grey[300]!, // color of the frame
-                      width: 3, // width of the frame
-                    )),
+                  shape: BoxShape.circle,
+                  border: Border.all(
+                    color: Colors.grey[300]!, // color of the frame
+                    width: 3, // width of the frame
+                  ),
+                ),
                 child: CircleAvatar(
-                  radius: 27,
+                  radius: MediaQuery.of(context).size.width * 0.05,
                   backgroundColor: Colors.white,
                   child: dp,
                 ),
@@ -60,7 +63,9 @@ class OpportunityCard extends StatelessWidget {
                   Text(
                     role,
                     style: const TextStyle(
-                        fontWeight: FontWeight.bold, fontSize: 16),
+                      fontWeight: FontWeight.bold,
+                      fontSize: 16,
+                    ),
                   ),
                   const SizedBox(height: 12),
                   Text(
@@ -106,7 +111,7 @@ class OpportunityCard extends StatelessWidget {
           Row(
             children: [
               Container(
-                height: 16,
+                height: MediaQuery.of(context).size.height * 0.03,
                 padding: const EdgeInsets.symmetric(horizontal: 8),
                 decoration: const BoxDecoration(
                   color: Color(0xFFFFF6E5),
@@ -130,7 +135,7 @@ class OpportunityCard extends StatelessWidget {
                 width: 2,
               ),
               Container(
-                height: 16,
+                height: MediaQuery.of(context).size.height * 0.03,
                 padding: const EdgeInsets.symmetric(horizontal: 8),
                 decoration: const BoxDecoration(
                   color: Color(0xFFFFEEE5),
@@ -154,7 +159,7 @@ class OpportunityCard extends StatelessWidget {
                 width: 2,
               ),
               Container(
-                height: 16,
+                height: MediaQuery.of(context).size.height * 0.03,
                 padding: const EdgeInsets.symmetric(horizontal: 8),
                 decoration: const BoxDecoration(
                   color: Color(0xFFFFE5EE),
@@ -198,7 +203,7 @@ class OpportunityCard extends StatelessWidget {
             height: 6,
           ),
           Container(
-            width: 368, // Length of the horizontal line
+            width: MediaQuery.of(context).size.width * 0.92, // Length of the horizontal line
             height: 1, // Thickness of the line
             color: Colors.grey, // Color of the line
           ),

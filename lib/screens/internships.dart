@@ -7,6 +7,9 @@ class InternshipsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+    final screenHeight = MediaQuery.of(context).size.height;
+
     return Scaffold(
       appBar: AppBar(
         title: const Text(
@@ -18,20 +21,20 @@ class InternshipsScreen extends StatelessWidget {
           IconButton(
               onPressed: () {
                 Navigator.of(context).push(
-                    MaterialPageRoute(builder: (ctx) => NotificationScreen()));
+                    MaterialPageRoute(builder: (ctx) => const NotificationScreen()));
               },
               icon: const Icon(Icons.notifications))
         ],
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.all(16),
+          padding: EdgeInsets.all(screenWidth * 0.04), // 4% of screen width
           child: Center(
             child: Column(
               children: [
                 Container(
-                  width: MediaQuery.of(context).size.width * 0.95,
-                  height: 86,
+                  width: screenWidth * 0.95, // 95% of screen width
+                  height: screenHeight * 0.1, // 10% of screen height
                   decoration: BoxDecoration(
                       gradient: const LinearGradient(
                         colors: [Color(0xFFFF6E01), Color(0xFFFEBC0D)],
@@ -41,60 +44,61 @@ class InternshipsScreen extends StatelessWidget {
                       borderRadius: BorderRadius.circular(8)),
                   child: Row(
                     children: [
-                      const SizedBox(
-                        width: 16,
+                      SizedBox(
+                        width: screenWidth * 0.04, // 4% of screen width
                       ),
                       Container(
-                        width: 32.72,
-                        height: 32.72,
+                        width: screenWidth * 0.08, // 8% of screen width
+                        height: screenWidth * 0.08, // 8% of screen width
                         decoration: const BoxDecoration(
                           shape: BoxShape.circle,
                           color: Colors.white,
                         ),
-                        child: const Icon(
+                        child: Icon(
                           Icons.spa,
-                          size: 15,
+                          size: screenWidth * 0.04, // 4% of screen width
                           color: Colors.orange,
                         ),
                       ),
-                      const SizedBox(
-                        width: 8,
+                      SizedBox(
+                        width: screenWidth * 0.02, // 2% of screen width
                       ),
-                      const Text(
+                      Text(
                         'Internships',
-                        style: TextStyle(fontSize: 17.55, color: Colors.white),
+                        style: TextStyle(
+                            fontSize: screenWidth * 0.045, // 4.5% of screen width
+                            color: Colors.white),
                       ),
                       const Spacer(),
                       Container(
-                        // padding: EdgeInsets.all(8.0),
-                        width: 90,
-                        height: 90,
+                        width: screenWidth * 0.23, // 23% of screen width
+                        height: screenWidth * 0.23, // 23% of screen width
                         decoration: BoxDecoration(
                           color: Colors.orange[50],
                           shape: BoxShape.circle,
                         ),
-                        child: const Icon(
+                        child: Icon(
                           Icons.spa,
                           color: Colors.orange,
-                          size: 40,
+                          size: screenWidth * 0.1, // 10% of screen width
                         ),
                       ),
                     ],
                   ),
                 ),
-                const SizedBox(
-                  height: 24,
+                SizedBox(
+                  height: screenHeight * 0.03, // 3% of screen height
                 ),
                 const Align(
                     alignment: Alignment.centerLeft,
                     child: Text(
                       'Available Internships (2)',
-                      style:
-                          TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                      style: TextStyle(
+                          fontSize: 16, fontWeight: FontWeight.bold),
                       textAlign: TextAlign.left,
                     )),
-                const SizedBox(
-                  height: 24,
+                SizedBox(
+                  height: screenHeight * 0.03, // 3% of screen height
                 ),
                 OpportunityCard(
                   dp: Image.asset('assets/Rectangle 57.png'),
@@ -107,8 +111,8 @@ class InternshipsScreen extends StatelessWidget {
                   exp: 1,
                   daysPosted: 6,
                 ),
-                const SizedBox(
-                  height: 8,
+                SizedBox(
+                  height: screenHeight * 0.01, // 1% of screen height
                 ),
                 OpportunityCard(
                   dp: Image.asset('assets/crtd1 1.png'),
@@ -121,19 +125,19 @@ class InternshipsScreen extends StatelessWidget {
                   exp: 1,
                   daysPosted: 6,
                 ),
-                const SizedBox(
-                  height: 24,
+                SizedBox(
+                  height: screenHeight * 0.03, // 3% of screen height
                 ),
                 const Align(
                     alignment: Alignment.centerLeft,
                     child: Text(
                       'Upcoming Internships (1)',
-                      style:
-                          TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                      style: TextStyle(
+                          fontSize: 16, fontWeight: FontWeight.bold),
                       textAlign: TextAlign.left,
                     )),
-                const SizedBox(
-                  height: 24,
+                SizedBox(
+                  height: screenHeight * 0.03, // 3% of screen height
                 ),
                 OpportunityCard(
                   dp: Image.asset('assets/Rectangle 57.png'),
@@ -146,7 +150,6 @@ class InternshipsScreen extends StatelessWidget {
                   exp: 1,
                   daysPosted: 6,
                 ),
-                
               ],
             ),
           ),

@@ -5,48 +5,50 @@ class CircleRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double circleSize = MediaQuery.of(context).size.width * 0.03;
+
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Container(
-          width:15,
-          height: 15,
+          width: circleSize,
+          height: circleSize,
           decoration: const BoxDecoration(
             color: Color(0xFFC1272D), // Color for the filled circle
             shape: BoxShape.circle,
           ),
         ),
-        const SizedBox(width: 8), // Spacing between circles
+        SizedBox(width: circleSize * 0.6), // Spacing between circles
         Container(
-          width: 15,
-          height: 15,
+          width: circleSize,
+          height: circleSize,
           decoration: BoxDecoration(
             border: Border.all(color: Colors.grey), // Border color for empty circles
             shape: BoxShape.circle,
           ),
         ),
-        const SizedBox(width: 8),
+        SizedBox(width: circleSize * 0.6),
         Container(
-          width: 15,
-          height: 15,
+          width: circleSize,
+          height: circleSize,
           decoration: BoxDecoration(
             border: Border.all(color: Colors.grey),
             shape: BoxShape.circle,
           ),
         ),
-        const SizedBox(width: 8),
+        SizedBox(width: circleSize * 0.6),
         Container(
-          width: 15,
-          height: 15,
+          width: circleSize,
+          height: circleSize,
           decoration: BoxDecoration(
             border: Border.all(color: Colors.grey),
             shape: BoxShape.circle,
           ),
         ),
-        const SizedBox(width: 8),
+        SizedBox(width: circleSize * 0.6),
         Container(
-          width: 15,
-          height: 15,
+          width: circleSize,
+          height: circleSize,
           decoration: BoxDecoration(
             border: Border.all(color: Colors.grey),
             shape: BoxShape.circle,
