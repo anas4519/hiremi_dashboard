@@ -17,11 +17,21 @@ class MyApp extends StatelessWidget {
       title: 'Dashboard',
       theme: ThemeData(
         useMaterial3: true,
-        fontFamily: GoogleFonts.poppins().fontFamily
+        scaffoldBackgroundColor: Colors.white,
+        appBarTheme: const AppBarTheme(
+          backgroundColor: Colors.white
+        ),
+        drawerTheme: const DrawerThemeData(
+          backgroundColor: Colors.white
+        ),
+        fontFamily: GoogleFonts.poppins().fontFamily,
+        bottomNavigationBarTheme: const BottomNavigationBarThemeData(
+          backgroundColor: Colors.white
+        )
       ),
       
       home: const Center(
-        child: NewNavbar(),
+        child: NewNavbar(isV: false,),
       ),
       debugShowCheckedModeBanner: false,
     );

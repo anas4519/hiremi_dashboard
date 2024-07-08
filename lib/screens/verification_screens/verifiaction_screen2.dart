@@ -1,40 +1,37 @@
 import 'package:flutter/material.dart';
 import 'package:hiremi_dashboard/screens/verification_screens/verification_screen1.dart';
+import 'package:hiremi_dashboard/screens/verification_screens/verification_screen3.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
 
-enum Gender { Male, Female, Other }
-
-class VerificationScreen extends StatefulWidget {
-  const VerificationScreen({super.key});
+class VerificationScreen2 extends StatefulWidget {
+  const VerificationScreen2({super.key});
 
   @override
-  State<VerificationScreen> createState() => _VerificationScreenState();
+  State<VerificationScreen2> createState() => _VerificationScreenState();
 }
 
-class _VerificationScreenState extends State<VerificationScreen> {
-  Gender? _selectedGender;
-  final TextEditingController _fullNameController = TextEditingController();
-  final TextEditingController _fatherNameController = TextEditingController();
-  final TextEditingController _emailController = TextEditingController();
-  final TextEditingController _dobController = TextEditingController();
-  final TextEditingController _birthPlaceController = TextEditingController();
+class _VerificationScreenState extends State<VerificationScreen2> {
+  final TextEditingController _collegeNameController = TextEditingController();
+  final TextEditingController _collegeStateController = TextEditingController();
+  final TextEditingController _branchController = TextEditingController();
+  final TextEditingController _degreeController = TextEditingController();
+  final TextEditingController _passYearController = TextEditingController();
 
   bool _isAllFieldsValid() {
-    return _fullNameController.text.isNotEmpty &&
-        _fatherNameController.text.isNotEmpty &&
-        _emailController.text.isNotEmpty &&
-        _dobController.text.isNotEmpty &&
-        _birthPlaceController.text.isNotEmpty &&
-        _selectedGender != null;
+    return _collegeNameController.text.isNotEmpty &&
+        _collegeStateController.text.isNotEmpty &&
+        _branchController.text.isNotEmpty &&
+        _degreeController.text.isNotEmpty &&
+        _passYearController.text.isNotEmpty;
   }
 
   @override
   void dispose() {
-    _fullNameController.dispose();
-    _fatherNameController.dispose();
-    _emailController.dispose();
-    _dobController.dispose();
-    _birthPlaceController.dispose();
+    _collegeNameController.dispose();
+    _collegeStateController.dispose();
+    _branchController.dispose();
+    _degreeController.dispose();
+    _passYearController.dispose();
     super.dispose();
   }
 
@@ -63,9 +60,9 @@ class _VerificationScreenState extends State<VerificationScreen> {
                     CircularPercentIndicator(
                       radius: screenHeight * 0.05,
                       lineWidth: 6,
-                      percent: 0.25,
+                      percent: 0.75,
                       center: const Text(
-                        '25%',
+                        '75%',
                         style: TextStyle(
                             color: Colors.green, fontWeight: FontWeight.bold, fontSize: 12),
                       ),
@@ -116,9 +113,9 @@ class _VerificationScreenState extends State<VerificationScreen> {
                 width: screenWidth,
                 color: Colors.grey,
               ),
-              SizedBox(height: screenHeight * 0.04),
+              SizedBox(height: screenHeight * 0.02),
               const Text(
-                'Personal Information',
+                'Education Information',
                 style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
                 textAlign: TextAlign.start,
               ),
@@ -129,8 +126,8 @@ class _VerificationScreenState extends State<VerificationScreen> {
                   const Row(
                     children: [
                       Text(
-                        'Full name',
-                        style: TextStyle(fontWeight: FontWeight.bold, fontSize: 12),
+                        'College Name',
+                        style: TextStyle(fontSize: 12),
                       ),
                       Text(
                         '*',
@@ -150,21 +147,21 @@ class _VerificationScreenState extends State<VerificationScreen> {
                       border: Border.all(color: Colors.green),
                     ),
                     child: TextField(
-                      controller: _fullNameController,
+                      controller: _collegeNameController,
                       keyboardType: TextInputType.name,
                       decoration: InputDecoration(
                         border: InputBorder.none,
-                        contentPadding: EdgeInsets.all(screenHeight * 0.015),
+                        contentPadding: EdgeInsets.all(screenHeight * 0.01),
                       ),
-                      style: TextStyle(fontSize: 12),
+                      style: const TextStyle(fontSize: 12),
                     ),
                   ),
                   SizedBox(height: screenHeight * 0.02),
                   const Row(
                     children: [
                       Text(
-                        "Father's Full name",
-                        style: TextStyle(fontWeight: FontWeight.bold, fontSize: 12),
+                        "College State",
+                        style: TextStyle(fontSize: 12),
                       ),
                       Text(
                         '*',
@@ -184,95 +181,29 @@ class _VerificationScreenState extends State<VerificationScreen> {
                       border: Border.all(color: Colors.green),
                     ),
                     child: TextField(
-                      controller: _fatherNameController,
+                      controller: _collegeStateController,
                       keyboardType: TextInputType.name,
                       decoration: InputDecoration(
                         border: InputBorder.none,
-                        contentPadding: EdgeInsets.all(screenHeight * 0.015),
+                        contentPadding: EdgeInsets.all(screenHeight * 0.01),
                       ),
-                      style: TextStyle(fontSize: 12),
+                      style: const TextStyle(fontSize: 12),
                     ),
                   ),
                   SizedBox(height: screenHeight * 0.02),
                   const Row(
                     children: [
                       Text(
-                        "Gender",
-                        style: TextStyle(fontWeight: FontWeight.bold, fontSize: 12),
+                        'Branch',
+                        style: TextStyle(fontSize: 12),
                       ),
                       Text(
                         '*',
                         style: TextStyle(
                           color: Colors.red,
                           fontWeight: FontWeight.bold,
-                          fontSize: 12),
-                      ),
-                    ],
-                  ),
-                  SizedBox(height: screenHeight * 0.01),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Row(
-                        children: [
-                          Radio(
-                            value: Gender.Male,
-                            groupValue: _selectedGender,
-                            onChanged: (Gender? value) {
-                              setState(() {
-                                _selectedGender = value;
-                              });
-                            },
-                            activeColor: Colors.blue,
-                          ),
-                          const Text('Male', style: TextStyle(fontSize: 12)),
-                        ],
-                      ),
-                      Row(
-                        children: [
-                          Radio(
-                            value: Gender.Female,
-                            groupValue: _selectedGender,
-                            onChanged: (Gender? value) {
-                              setState(() {
-                                _selectedGender = value;
-                              });
-                            },
-                            activeColor: Colors.blue,
-                          ),
-                          const Text('Female', style: TextStyle(fontSize: 12)),
-                        ],
-                      ),
-                      Row(
-                        children: [
-                          Radio(
-                            value: Gender.Other,
-                            groupValue: _selectedGender,
-                            onChanged: (Gender? value) {
-                              setState(() {
-                                _selectedGender = value;
-                              });
-                            },
-                            activeColor: Colors.blue,
-                          ),
-                          const Text('Other', style: TextStyle(fontSize: 12)),
-                        ],
-                      ),
-                    ],
-                  ),
-                  SizedBox(height: screenHeight * 0.02),
-                  const Row(
-                    children: [
-                      Text(
-                        'Email Address',
-                        style: TextStyle(fontWeight: FontWeight.bold, fontSize: 12),
-                      ),
-                      Text(
-                        '*',
-                        style: TextStyle(
-                          color: Colors.red,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 12),
+                          fontSize: 12,
+                        ),
                       ),
                     ],
                   ),
@@ -284,84 +215,105 @@ class _VerificationScreenState extends State<VerificationScreen> {
                       border: Border.all(color: Colors.green),
                     ),
                     child: TextField(
-                      controller: _emailController,
-                      keyboardType: TextInputType.emailAddress,
-                      decoration: InputDecoration(
-                        border: InputBorder.none,
-                        contentPadding: EdgeInsets.all(screenHeight * 0.015),
-                      ),
-                      style: TextStyle(fontSize: 12),
-                    ),
-                  ),
-                  SizedBox(height: screenHeight * 0.02),
-                  const Row(
-                    children: [
-                      Text(
-                        'Date of Birth',
-                        style: TextStyle(fontWeight: FontWeight.bold, fontSize: 12),
-                      ),
-                      Text(
-                        '*',
-                        style: TextStyle(
-                          color: Colors.red,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 12),
-                      ),
-                    ],
-                  ),
-                  SizedBox(height: screenHeight * 0.01),
-                  Container(
-                    width: screenWidth,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(8),
-                      border: Border.all(color: Colors.green),
-                    ),
-                    child: TextField(
-                      controller: _dobController,
-                      keyboardType: TextInputType.datetime,
-                      decoration: InputDecoration(
-                        border: InputBorder.none,
-                        contentPadding: EdgeInsets.all(screenHeight * 0.015),
-                      ),
-                      style: TextStyle(fontSize: 12),
-                    ),
-                  ),
-                  SizedBox(height: screenHeight * 0.02),
-                  const Row(
-                    children: [
-                      Text(
-                        'Birth Place',
-                        style: TextStyle(fontWeight: FontWeight.bold, fontSize: 12),
-                      ),
-                      Text(
-                        '*',
-                        style: TextStyle(
-                          color: Colors.red,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 12),
-                      ),
-                    ],
-                  ),
-                  SizedBox(height: screenHeight * 0.01),
-                  Container(
-                    width: screenWidth,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(8),
-                      border: Border.all(color: Colors.green),
-                    ),
-                    child: TextField(
-                      controller: _birthPlaceController,
+                      controller: _branchController,
                       keyboardType: TextInputType.text,
                       decoration: InputDecoration(
                         border: InputBorder.none,
-                        contentPadding: EdgeInsets.all(screenHeight * 0.015),
+                        contentPadding: EdgeInsets.all(screenHeight * 0.01),
                       ),
-                      style: TextStyle(fontSize: 12),
+                      style: const TextStyle(fontSize: 12),
+                    ),
+                  ),
+                  SizedBox(height: screenHeight * 0.02),
+                  const Row(
+                    children: [
+                      Text(
+                        'Degree',
+                        style: TextStyle(fontSize: 12),
+                      ),
+                      Text(
+                        '*',
+                        style: TextStyle(
+                          color: Colors.red,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 12,
+                        ),
+                      ),
+                    ],
+                  ),
+                  SizedBox(height: screenHeight * 0.01),
+                  Container(
+                    width: screenWidth,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(8),
+                      border: Border.all(color: Colors.green),
+                    ),
+                    child: TextField(
+                      controller: _degreeController,
+                      keyboardType: TextInputType.text,
+                      decoration: InputDecoration(
+                        border: InputBorder.none,
+                        contentPadding: EdgeInsets.all(screenHeight * 0.01),
+                      ),
+                      style: const TextStyle(fontSize: 12),
+                    ),
+                  ),
+                  SizedBox(height: screenHeight * 0.02),
+                  const Row(
+                    children: [
+                      Text(
+                        'Passout Year',
+                        style: TextStyle(fontSize: 12),
+                      ),
+                      Text(
+                        '*',
+                        style: TextStyle(
+                          color: Colors.red,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 12,
+                        ),
+                      ),
+                    ],
+                  ),
+                  SizedBox(height: screenHeight * 0.01),
+                  Container(
+                    width: screenWidth,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(8),
+                      border: Border.all(color: Colors.green),
+                    ),
+                    child: TextField(
+                      controller: _passYearController,
+                      keyboardType: TextInputType.number,
+                      decoration: InputDecoration(
+                        border: InputBorder.none,
+                        contentPadding: EdgeInsets.all(screenHeight * 0.01),
+                      ),
+                      style: const TextStyle(fontSize: 12),
                     ),
                   ),
                   SizedBox(height: screenHeight * 0.02),
                   Row(
                     children: [
+                      Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(8),
+                          border: Border.all(color: const Color(0xFFC1272D)),
+                        ),
+                        child: TextButton(
+                          onPressed: () {
+                            Navigator.of(context).pop();
+                            // Replace with your error handling logic here
+                          },
+                          child: Text(
+                            '< Edit Previous',
+                            style: TextStyle(
+                              fontSize: screenHeight * 0.012,
+                              color: const Color(0xFFC1272D),
+                            ),
+                          ),
+                        ),
+                      ),
                       const Spacer(),
                       Container(
                         decoration: BoxDecoration(
@@ -372,7 +324,7 @@ class _VerificationScreenState extends State<VerificationScreen> {
                           onPressed: () {
                             if (_isAllFieldsValid()) {
                               Navigator.of(context).push(MaterialPageRoute(
-                                  builder: (ctx) => const VerificationScreen1()));
+                                  builder: (ctx) => const VerificationScreen3()));
                             } else {
                               print('Please fill in all required fields.');
                               // Replace with your error handling logic here
@@ -381,7 +333,9 @@ class _VerificationScreenState extends State<VerificationScreen> {
                           child: Text(
                             'Review & Verify >',
                             style: TextStyle(
-                                fontSize: screenHeight * 0.015, color: Colors.white),
+                              fontSize: screenHeight * 0.012,
+                              color: Colors.white,
+                            ),
                           ),
                         ),
                       ),

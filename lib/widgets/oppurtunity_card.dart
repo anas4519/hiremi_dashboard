@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:hiremi_dashboard/mustafa_screens/screens/Job_Details_Section/Freshers_Jobs/Fresher_Jobs.dart';
+import 'package:hiremi_dashboard/mustafa_screens/screens/Job_Details_Section/Internships/Internships_Details.dart';
+import 'package:hiremi_dashboard/widgets/custom_alertBox.dart';
 
 class OpportunityCard extends StatelessWidget {
   const OpportunityCard({
@@ -12,6 +15,7 @@ class OpportunityCard extends StatelessWidget {
     required this.exp,
     required this.type,
     required this.daysPosted,
+    required this.isVerified,
   });
 
   final Image dp;
@@ -23,6 +27,7 @@ class OpportunityCard extends StatelessWidget {
   final int exp;
   final String type;
   final int daysPosted;
+  final bool isVerified;
 
   @override
   Widget build(BuildContext context) {
@@ -96,8 +101,7 @@ class OpportunityCard extends StatelessWidget {
               const SizedBox(height: 5),
               Row(
                 children: [
-                  const Icon(Icons.currency_rupee,
-                      color: Colors.grey, size: 8),
+                  const Icon(Icons.currency_rupee, color: Colors.grey, size: 8),
                   const SizedBox(width: 5),
                   Text(
                     stipend,
@@ -181,7 +185,29 @@ class OpportunityCard extends StatelessWidget {
               ),
               const Spacer(),
               ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  if (!isVerified) {
+                    showDialog(
+                        context: context,
+                        builder: (BuildContext context) {
+                          return AlertDialog(
+                              contentPadding: EdgeInsets.zero,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(20),
+                              ),
+                              content: const CustomAlertbox());
+                        });
+                  }
+                  else{
+                    if(type == 'Job'){
+                      Navigator.of(context).push(MaterialPageRoute(builder: (ctx)=> const FresherJobsScreen()));
+                    }
+                    else{
+                      Navigator.of(context).push(MaterialPageRoute(builder: (ctx)=> const InternshipsDetailsScreen()));
+                    }
+                    
+                  }
+                },
                 style: ButtonStyle(
                   foregroundColor: WidgetStateProperty.all<Color>(Colors.white),
                   backgroundColor:
@@ -203,7 +229,8 @@ class OpportunityCard extends StatelessWidget {
             height: 6,
           ),
           Container(
-            width: MediaQuery.of(context).size.width * 0.92, // Length of the horizontal line
+            width: MediaQuery.of(context).size.width *
+                0.92, // Length of the horizontal line
             height: 1, // Thickness of the line
             color: Colors.grey, // Color of the line
           ),

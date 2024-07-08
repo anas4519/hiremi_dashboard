@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:hiremi_dashboard/mustafa_screens/screens/Verified_Profile_Section/ProfileScreen.dart';
 import 'package:hiremi_dashboard/screens/applies_screen.dart';
 import 'package:hiremi_dashboard/screens/home_screen.dart';
 import 'package:hiremi_dashboard/screens/queries_screen.dart';
-import 'package:hiremi_dashboard/screens/profile_screen.dart';
+
 // import 'package:hiremi_dashboard/screens/verification_screen.dart';
 
 class NewNavbar extends StatefulWidget {
-  const NewNavbar({super.key});
-
+  final bool isV;
+  const NewNavbar({super.key, required this.isV});
+  
   @override
   State<NewNavbar> createState() => _NewNavbarState();
 }
@@ -15,13 +17,18 @@ class NewNavbar extends StatefulWidget {
 class _NewNavbarState extends State<NewNavbar> {
   int _selectedIndex = 0;
   final PageController _pageController = PageController();
-
-  final List<Widget> _pages = [
-    const HomeScreen(isVerified: true,),
-    const AppliesScreen(),
-    const QueriesScreen(),
-    const ProfileScreen(),
-  ];
+  
+  late List<Widget> _pages;
+  @override
+  void initState() {
+    super.initState();
+    _pages = [
+      HomeScreen(isVerified: widget.isV),
+      const AppliesScreen(),
+      const QueriesScreen(),
+      const ProfileScreen(),
+    ];
+  }
 
   void _onItemTapped(int index) {
     setState(() {
@@ -33,6 +40,7 @@ class _NewNavbarState extends State<NewNavbar> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       body: Stack(
         children: [
           PageView(
@@ -61,8 +69,8 @@ class _NewNavbarState extends State<NewNavbar> {
                 borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(20),
                   topRight: Radius.circular(20),
-                  bottomLeft: Radius.circular(50),
-                  bottomRight: Radius.circular(50),
+                  bottomLeft: Radius.circular(40),
+                  bottomRight: Radius.circular(40),
                 ),
                 boxShadow: [
                   BoxShadow(

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hiremi_dashboard/screens/fresher_jobs.dart';
 import 'package:hiremi_dashboard/screens/internships.dart';
 import 'package:hiremi_dashboard/screens/notification_screen.dart';
 import 'package:hiremi_dashboard/widgets/banners.dart';
@@ -26,8 +27,10 @@ class _HomeScreenState extends State<HomeScreen> {
     final screenHeight = MediaQuery.of(context).size.height;
 
     return Scaffold(
-      drawer: const Drawer(child: DrawerChild()),
+      backgroundColor: Colors.white,
+      drawer: const Drawer(backgroundColor: Colors.white,child: DrawerChild(),),
       appBar: AppBar(
+        backgroundColor: Colors.white,
         title: const Text(
           "Hiremi's Home",
           style: TextStyle(fontWeight: FontWeight.bold),
@@ -86,7 +89,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     child: TextButton(
                       onPressed: () {
                         Navigator.of(context).push(MaterialPageRoute(
-                          builder: (ctx) => const InternshipsScreen(),
+                          builder: (ctx) => InternshipsScreen(isVerified: widget.isVerified),
                         ));
                       },
                       child: Row(
@@ -126,7 +129,9 @@ class _HomeScreenState extends State<HomeScreen> {
                       borderRadius: BorderRadius.circular(8),
                     ),
                     child: TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.of(context).push(MaterialPageRoute(builder: (ctx)=> FresherJobs(isVerified: widget.isVerified,)));
+                      },
                       child: Row(
                         children: [
                           Container(
@@ -164,7 +169,9 @@ class _HomeScreenState extends State<HomeScreen> {
                       borderRadius: BorderRadius.circular(8),
                     ),
                     child: TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        // Navigator.of(context).push(MaterialPageRoute(builder: (ctx)=>ExperienceJobs()));
+                      },
                       child: Row(
                         children: [
                           Container(
@@ -209,6 +216,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 type: 'Internship',
                 exp: 1,
                 daysPosted: 6,
+                isVerified: widget.isVerified,
               ),
               SizedBox(height: screenHeight * 0.01),
               OpportunityCard(
@@ -221,6 +229,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 type: 'Internship',
                 exp: 1,
                 daysPosted: 6,
+                isVerified: widget.isVerified,
               ),
               SizedBox(height: screenHeight * 0.01),
               OpportunityCard(
@@ -233,6 +242,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 type: 'Internship',
                 exp: 1,
                 daysPosted: 6,
+                isVerified: widget.isVerified,
               ),
             ],
           ),

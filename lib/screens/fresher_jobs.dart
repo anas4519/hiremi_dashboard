@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:hiremi_dashboard/screens/notification_screen.dart';
 import 'package:hiremi_dashboard/widgets/oppurtunity_card.dart';
 
-class InternshipsScreen extends StatelessWidget {
-  const InternshipsScreen({super.key, required this.isVerified});
+class FresherJobs extends StatelessWidget {
+  const FresherJobs({super.key, required this.isVerified});
   final bool isVerified;
 
   @override
@@ -14,7 +14,7 @@ class InternshipsScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          'Internships',
+          'Fresher Jobs',
           style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
         ),
         centerTitle: true,
@@ -38,7 +38,7 @@ class InternshipsScreen extends StatelessWidget {
                   height: screenHeight * 0.1, // 10% of screen height
                   decoration: BoxDecoration(
                       gradient: const LinearGradient(
-                        colors: [Color(0xFFFF6E01), Color(0xFFFEBC0D)],
+                        colors: [Color(0xFFFC3E41), Color(0xFFFF6E01)],
                         begin: Alignment.topLeft,
                         end: Alignment.bottomRight,
                       ),
@@ -56,16 +56,16 @@ class InternshipsScreen extends StatelessWidget {
                           color: Colors.white,
                         ),
                         child: Icon(
-                          Icons.spa,
+                          Icons.work,
                           size: screenWidth * 0.04, // 4% of screen width
-                          color: Colors.orange,
+                          color: const Color(0xFFFF3E41),
                         ),
                       ),
                       SizedBox(
                         width: screenWidth * 0.02, // 2% of screen width
                       ),
                       Text(
-                        'Internships',
+                        'Fresher Jobs',
                         style: TextStyle(
                             fontSize: screenWidth * 0.045, // 4.5% of screen width
                             color: Colors.white),
@@ -75,12 +75,12 @@ class InternshipsScreen extends StatelessWidget {
                         width: screenWidth * 0.23, // 23% of screen width
                         height: screenWidth * 0.23, // 23% of screen width
                         decoration: BoxDecoration(
-                          color: Colors.orange[50],
+                          color: Colors.red[100],
                           shape: BoxShape.circle,
                         ),
                         child: Icon(
-                          Icons.spa,
-                          color: Colors.orange,
+                          Icons.work,
+                          color: const Color(0xFFFF3E41),
                           size: screenWidth * 0.1, // 10% of screen width
                         ),
                       ),
@@ -93,7 +93,7 @@ class InternshipsScreen extends StatelessWidget {
                 const Align(
                     alignment: Alignment.centerLeft,
                     child: Text(
-                      'Available Internships (2)',
+                      'Available Fresher Jobs (1)',
                       style: TextStyle(
                           fontSize: 16, fontWeight: FontWeight.bold),
                       textAlign: TextAlign.left,
@@ -101,29 +101,28 @@ class InternshipsScreen extends StatelessWidget {
                 SizedBox(
                   height: screenHeight * 0.03, // 3% of screen height
                 ),
-                OpportunityCard(
-                  dp: Image.asset('assets/Rectangle 57.png'),
-                  role: 'Human Resource Intern',
-                  company: 'Hiremi',
-                  location: 'Bhopal, Madhya Pradesh, India',
-                  stipend: '2,000-15,000',
-                  mode: 'Remote',
-                  type: 'Internship',
-                  exp: 1,
-                  daysPosted: 6,
-                  isVerified: isVerified,
-                ),
-                SizedBox(
-                  height: screenHeight * 0.01, // 1% of screen height
-                ),
+                // OpportunityCard(
+                //   dp: Image.asset('assets/Rectangle 57.png'),
+                //   role: 'Human Resource Intern',
+                //   company: 'Hiremi',
+                //   location: 'Bhopal, Madhya Pradesh, India',
+                //   stipend: '2,000-15,000',
+                //   mode: 'Remote',
+                //   type: 'Internship',
+                //   exp: 1,
+                //   daysPosted: 6,
+                // ),
+                // SizedBox(
+                //   height: screenHeight * 0.01, // 1% of screen height
+                // ),
                 OpportunityCard(
                   dp: Image.asset('assets/crtd1 1.png'),
-                  role: 'Social Media Intern',
+                  role: 'Full Time Recruiter',
                   company: 'CRTD Technologies',
                   location: 'Bhopal, Madhya Pradesh, India',
                   stipend: '2,000-15,000',
                   mode: 'Remote',
-                  type: 'Internship',
+                  type: 'Job',
                   exp: 1,
                   daysPosted: 6,
                   isVerified: isVerified,
@@ -134,7 +133,7 @@ class InternshipsScreen extends StatelessWidget {
                 const Align(
                     alignment: Alignment.centerLeft,
                     child: Text(
-                      'Upcoming Internships (1)',
+                      'Upcoming Fresher Jobs (1)',
                       style: TextStyle(
                           fontSize: 16, fontWeight: FontWeight.bold),
                       textAlign: TextAlign.left,
@@ -144,12 +143,12 @@ class InternshipsScreen extends StatelessWidget {
                 ),
                 OpportunityCard(
                   dp: Image.asset('assets/Rectangle 57.png'),
-                  role: 'Data Science Intern',
+                  role: 'Full Stack Developer',
                   company: 'Hiremi',
                   location: 'Bhopal, Madhya Pradesh, India',
                   stipend: '2,000-15,000',
                   mode: 'Remote',
-                  type: 'Internship',
+                  type: 'Job',
                   exp: 1,
                   daysPosted: 6,
                   isVerified: isVerified,

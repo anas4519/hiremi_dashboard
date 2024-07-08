@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:hiremi_dashboard/screens/home_screen.dart';
 import 'package:hiremi_dashboard/screens/notification_screen.dart';
+import 'package:hiremi_dashboard/widgets/new_navBar.dart';
 
 class VerifiedPage extends StatelessWidget {
   const VerifiedPage({super.key});
@@ -19,9 +21,8 @@ class VerifiedPage extends StatelessWidget {
         actions: [
           IconButton(
             onPressed: () {
-              Navigator.of(context).push(
-                MaterialPageRoute(builder: (ctx) => const NotificationScreen())
-              );
+              Navigator.of(context).push(MaterialPageRoute(
+                  builder: (ctx) => const NotificationScreen()));
             },
             icon: const Icon(Icons.notifications),
           )
@@ -45,7 +46,8 @@ class VerifiedPage extends StatelessWidget {
                   ' Payment Successful & Successfully Verified',
                   style: TextStyle(
                     color: Colors.green,
-                    fontSize: screenWidth * 0.037, // Adjusted for responsiveness
+                    fontSize:
+                        screenWidth * 0.037, // Adjusted for responsiveness
                     fontWeight: FontWeight.bold,
                   ),
                 )
@@ -58,7 +60,7 @@ class VerifiedPage extends StatelessWidget {
               alignment: Alignment.center,
               children: [
                 Container(
-                  height: screenHeight * 0.4,
+                  height: screenHeight * 0.45,
                   child: Image.asset(
                     'assets/confetti bg.png',
                     fit: BoxFit.cover,
@@ -66,7 +68,7 @@ class VerifiedPage extends StatelessWidget {
                   ),
                 ),
                 Positioned(
-                  top: screenHeight * 0.05,
+                  top: screenHeight * 0.06,
                   child: Image.asset(
                     'assets/Product quality-pana.png',
                     width: screenWidth * 0.8,
@@ -115,10 +117,18 @@ class VerifiedPage extends StatelessWidget {
                   height: screenHeight * 0.06,
                 ),
                 ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pushAndRemoveUntil(
+                      context,
+                      MaterialPageRoute(builder: (context) => NewNavbar(isV: true,)),
+                      (Route<dynamic> route) => false,
+                    );
+                  },
                   style: ButtonStyle(
-                    foregroundColor: WidgetStateProperty.all<Color>(Colors.white),
-                    backgroundColor: WidgetStateProperty.all<Color>(const Color(0xFFC1272D)),
+                    foregroundColor:
+                        WidgetStateProperty.all<Color>(Colors.white),
+                    backgroundColor:
+                        WidgetStateProperty.all<Color>(const Color(0xFFC1272D)),
                     shape: WidgetStateProperty.all<RoundedRectangleBorder>(
                       RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(8.0),
