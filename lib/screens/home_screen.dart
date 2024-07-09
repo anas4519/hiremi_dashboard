@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hiremi_dashboard/screens/experienced_jobs.dart';
 import 'package:hiremi_dashboard/screens/fresher_jobs.dart';
 import 'package:hiremi_dashboard/screens/internships.dart';
 import 'package:hiremi_dashboard/screens/notification_screen.dart';
@@ -170,7 +171,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                     child: TextButton(
                       onPressed: () {
-                        // Navigator.of(context).push(MaterialPageRoute(builder: (ctx)=>ExperienceJobs()));
+                        Navigator.of(context).push(MaterialPageRoute(builder: (ctx)=>const Experienced_Jobs()));
                       },
                       child: Row(
                         children: [
@@ -244,6 +245,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 daysPosted: 6,
                 isVerified: widget.isVerified,
               ),
+              const SizedBox(height: 64,)
             ],
           ),
         ),

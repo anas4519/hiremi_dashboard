@@ -38,6 +38,8 @@ dependencies:
   google_fonts: ^6.2.1
   percent_indicator: ^4.2.3
   hexcolor: ^3.0.1
+  flutter_svg_icons: ^0.0.1+4
+  url_launcher: ^6.3.0
 
 dev_dependencies:
   flutter_test:

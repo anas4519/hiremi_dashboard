@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:hiremi_dashboard/screens/about_us.dart';
+import 'package:hiremi_dashboard/screens/experienced_jobs.dart';
 
 import 'package:hiremi_dashboard/widgets/new_navBar.dart';
 
@@ -31,7 +33,7 @@ class MyApp extends StatelessWidget {
       ),
       
       home: const Center(
-        child: NewNavbar(isV: false,),
+        child: NewNavbar(isV: false)
       ),
       debugShowCheckedModeBanner: false,
     );

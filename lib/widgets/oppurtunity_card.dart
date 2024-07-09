@@ -192,6 +192,7 @@ class OpportunityCard extends StatelessWidget {
                         builder: (BuildContext context) {
                           return AlertDialog(
                               contentPadding: EdgeInsets.zero,
+                              backgroundColor: Colors.white,
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(20),
                               ),

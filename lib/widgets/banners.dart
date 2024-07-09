@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hiremi_dashboard/screens/verify.dart';
 
 class AdBanner extends StatelessWidget {
   AdBanner({super.key, required this.isVerified});
@@ -6,9 +7,12 @@ class AdBanner extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+    final screenHeight = MediaQuery.of(context).size.height;
+
     return Container(
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(8),
+        borderRadius: BorderRadius.circular(screenWidth * 0.02),
         gradient: const LinearGradient(
           colors: [
             Color(0xFFFFEFE0),
@@ -18,82 +22,118 @@ class AdBanner extends StatelessWidget {
           end: Alignment.centerRight,
         ),
       ),
-      width: MediaQuery.of(context).size.width * 0.95,
-      height: MediaQuery.of(context).size.height * 0.165,
+      width: screenWidth * 0.95,
+      height: screenHeight * 0.171,
       child: Padding(
-        padding: const EdgeInsets.all(16),
+        padding: EdgeInsets.all(screenWidth * 0.04),
         child: Row(
           children: [
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Row(
+                Row(
                   children: [
                     Text(
                       'Get ',
-                      style: TextStyle(fontSize: 11.69, color: Color(0xFF022A72)),
+                      style: TextStyle(
+                        fontSize: screenWidth * 0.03,
+                        color: const Color(0xFF022A72),
+                      ),
                     ),
                     Text(
                       'Hiremi ',
-                      style: TextStyle(fontSize: 11.69, color: Color(0xFFC1272D)),
+                      style: TextStyle(
+                        fontSize: screenWidth * 0.03,
+                        color: const Color(0xFFC1272D),
+                      ),
                     ),
                     Text(
                       'Verified ',
-                      style: TextStyle(fontSize: 11.69, color: Colors.green),
+                      style: TextStyle(
+                        fontSize: screenWidth * 0.03,
+                        color: Colors.green,
+                      ),
                     ),
                     Text(
                       '& ',
-                      style: TextStyle(fontSize: 11.69, color: Color(0xFF022A72)),
+                      style: TextStyle(
+                        fontSize: screenWidth * 0.03,
+                        color: const Color(0xFF022A72),
+                      ),
                     ),
                     Text(
                       'Apply ',
-                      style: TextStyle(fontSize: 11.69, color: Color(0xFFEB8D2E)),
+                      style: TextStyle(
+                        fontSize: screenWidth * 0.03,
+                        color: const Color(0xFFEB8D2E),
+                      ),
                     ),
                   ],
                 ),
-                const Text(
+                Text(
                   'for Jobs to Be Hired by ',
-                  style: TextStyle(fontSize: 11.69, color: Color(0xFF022A72)),
+                  style: TextStyle(
+                    fontSize: screenWidth * 0.03,
+                    color: const Color(0xFF022A72),
+                  ),
                   textAlign: TextAlign.start,
                 ),
-                const Text(
+                Text(
                   'Experts Easily. ',
-                  style: TextStyle(fontSize: 11.69, color: Color(0xFF022A72)),
+                  style: TextStyle(
+                    fontSize: screenWidth * 0.03,
+                    color: const Color(0xFF022A72),
+                  ),
                   textAlign: TextAlign.start,
                 ),
-                const SizedBox(height: 4,),
+                SizedBox(
+                  height: screenHeight * 0.01,
+                ),
                 Container(
-                  height: MediaQuery.of(context).size.height * 0.035,
+                  height: screenHeight * 0.035,
                   decoration: BoxDecoration(
                     color: Colors.blue,
-                    borderRadius: BorderRadius.circular(20),
+                    borderRadius: BorderRadius.circular(screenWidth * 0.05),
                   ),
                   child: TextButton(
                     onPressed: () {
-                      // Add your button click logic here
-                    },
-                    child:  Row(
-                      children: [
-                        const Icon(
-                          Icons.check_circle,
-                          color: Colors.white,
-                          size: 12,
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (ctx) => const VerificationScreen(),
                         ),
-                        const SizedBox(
-                          width: 5,
+                      );
+                    },
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Image.asset(
+                          'assets/new_releases (1).png',
+                          height: screenWidth * 0.025,
+                          width: screenWidth * 0.025,
+                        ),
+                        SizedBox(
+                          width: screenWidth * 0.0125,
                         ),
                         Text(
-                          isVerified ? 'Verified' : 'Verify Now >',
-                          style: const TextStyle(color: Colors.white, fontSize: 12),
+                          isVerified ? 'Verified' : 'Verify Now',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: screenWidth * 0.0225,
+                          ),
                         ),
                       ],
                     ),
                   ),
                 ),
-                const SizedBox(height: 2,),
-                const Text(
+                SizedBox(
+                  height: screenHeight * 0.015,
+                ),
+                Text(
                   'T&C Apply',
-                  style: TextStyle(fontSize: 8, color: Color(0xFF022A72)),
+                  style: TextStyle(
+                    fontSize: screenWidth * 0.02,
+                    color: const Color(0xFF022A72),
+                  ),
                   textAlign: TextAlign.start,
                 ),
               ],

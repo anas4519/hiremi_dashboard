@@ -13,6 +13,7 @@ class CustomAlertbox extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       children: [
         Container(
+          
           padding: const EdgeInsets.all(16),
           child: Column(
             mainAxisSize: MainAxisSize.min,
@@ -26,6 +27,7 @@ class CustomAlertbox extends StatelessWidget {
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(screenWidth * 0.04),
                       border: Border.all(color: Colors.grey),
+                      color: Colors.white
                     ),
                     child: IconButton(
                       onPressed: () {
@@ -46,6 +48,7 @@ class CustomAlertbox extends StatelessWidget {
                     width: screenWidth * 0.310, // 125/400
                     decoration: BoxDecoration(
                       border: Border.all(color: Colors.grey),
+                      
                     ),
                   ),
                   Icon(
@@ -58,6 +61,7 @@ class CustomAlertbox extends StatelessWidget {
                     width: screenWidth * 0.310, // 125/400
                     decoration: BoxDecoration(
                       border: Border.all(color: Colors.grey),
+                      
                     ),
                   ),
                 ],

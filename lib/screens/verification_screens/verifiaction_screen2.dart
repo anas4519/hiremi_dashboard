@@ -44,13 +44,13 @@ class _VerificationScreenState extends State<VerificationScreen2> {
       appBar: AppBar(
         title: const Text(
           'Review & Verify Your Profile',
-          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
+          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
         ),
         centerTitle: true,
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.all(8),
+          padding: const EdgeInsets.all(16),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -64,7 +64,7 @@ class _VerificationScreenState extends State<VerificationScreen2> {
                       center: const Text(
                         '75%',
                         style: TextStyle(
-                            color: Colors.green, fontWeight: FontWeight.bold, fontSize: 12),
+                            color: Colors.green, fontWeight: FontWeight.bold),
                       ),
                       progressColor: Colors.green,
                       backgroundColor: Colors.grey.shade300,
@@ -72,34 +72,34 @@ class _VerificationScreenState extends State<VerificationScreen2> {
                     SizedBox(height: screenHeight * 0.0075),
                     const Text(
                       'Harsh Pawar',
-                      style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold),
+                      style:
+                          TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                     ),
                     SizedBox(height: screenHeight * 0.0075),
                     Container(
-                      width: screenWidth * 0.2,
-                      height: screenHeight * 0.035,
+                      // height: screenHeight * 0.03,
                       decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(screenHeight * 0.035 / 2),
-                        border: Border.all(
-                          color: const Color(0xFFC1272D),
-                        ),
+                        borderRadius: BorderRadius.circular(screenWidth * 0.1),
+                        border: Border.all(color: const Color(0xFFC1272D)),
                       ),
                       child: Padding(
-                        padding: EdgeInsets.all(screenHeight * 0.005),
+                        padding: EdgeInsets.all(screenWidth * 0.01),
                         child: Row(
+                          mainAxisSize: MainAxisSize.min,
                           children: [
                             Icon(
-                              Icons.check_circle_outline_sharp,
+                              Icons.check_circle,
                               color: const Color(0xFFC1272D),
-                              size: screenHeight * 0.01,
+                              size: screenWidth * 0.02,
                             ),
                             Text(
-                              'Not verified',
+                              ' Not verified',
                               style: TextStyle(
                                 color: const Color(0xFFC1272D),
-                                fontSize: screenHeight * 0.01,
+                                fontSize: screenWidth *
+                                    0.02, // Adjusted based on screen width
                               ),
-                            )
+                            ),
                           ],
                         ),
                       ),
@@ -113,10 +113,10 @@ class _VerificationScreenState extends State<VerificationScreen2> {
                 width: screenWidth,
                 color: Colors.grey,
               ),
-              SizedBox(height: screenHeight * 0.02),
+              SizedBox(height: screenHeight * 0.04),
               const Text(
                 'Education Information',
-                style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
+                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                 textAlign: TextAlign.start,
               ),
               SizedBox(height: screenHeight * 0.02),
@@ -127,14 +127,12 @@ class _VerificationScreenState extends State<VerificationScreen2> {
                     children: [
                       Text(
                         'College Name',
-                        style: TextStyle(fontSize: 12),
                       ),
                       Text(
                         '*',
                         style: TextStyle(
                           color: Colors.red,
                           fontWeight: FontWeight.bold,
-                          fontSize: 12,
                         ),
                       ),
                     ],
@@ -151,9 +149,8 @@ class _VerificationScreenState extends State<VerificationScreen2> {
                       keyboardType: TextInputType.name,
                       decoration: InputDecoration(
                         border: InputBorder.none,
-                        contentPadding: EdgeInsets.all(screenHeight * 0.01),
+                        contentPadding: EdgeInsets.all(screenHeight * 0.015),
                       ),
-                      style: const TextStyle(fontSize: 12),
                     ),
                   ),
                   SizedBox(height: screenHeight * 0.02),
@@ -161,14 +158,12 @@ class _VerificationScreenState extends State<VerificationScreen2> {
                     children: [
                       Text(
                         "College State",
-                        style: TextStyle(fontSize: 12),
                       ),
                       Text(
                         '*',
                         style: TextStyle(
                           color: Colors.red,
                           fontWeight: FontWeight.bold,
-                          fontSize: 12,
                         ),
                       ),
                     ],
@@ -185,9 +180,8 @@ class _VerificationScreenState extends State<VerificationScreen2> {
                       keyboardType: TextInputType.name,
                       decoration: InputDecoration(
                         border: InputBorder.none,
-                        contentPadding: EdgeInsets.all(screenHeight * 0.01),
+                        contentPadding: EdgeInsets.all(screenHeight * 0.015),
                       ),
-                      style: const TextStyle(fontSize: 12),
                     ),
                   ),
                   SizedBox(height: screenHeight * 0.02),
@@ -195,14 +189,12 @@ class _VerificationScreenState extends State<VerificationScreen2> {
                     children: [
                       Text(
                         'Branch',
-                        style: TextStyle(fontSize: 12),
                       ),
                       Text(
                         '*',
                         style: TextStyle(
                           color: Colors.red,
                           fontWeight: FontWeight.bold,
-                          fontSize: 12,
                         ),
                       ),
                     ],
@@ -216,12 +208,11 @@ class _VerificationScreenState extends State<VerificationScreen2> {
                     ),
                     child: TextField(
                       controller: _branchController,
-                      keyboardType: TextInputType.text,
+                      keyboardType: TextInputType.emailAddress,
                       decoration: InputDecoration(
                         border: InputBorder.none,
-                        contentPadding: EdgeInsets.all(screenHeight * 0.01),
+                        contentPadding: EdgeInsets.all(screenHeight * 0.015),
                       ),
-                      style: const TextStyle(fontSize: 12),
                     ),
                   ),
                   SizedBox(height: screenHeight * 0.02),
@@ -229,14 +220,12 @@ class _VerificationScreenState extends State<VerificationScreen2> {
                     children: [
                       Text(
                         'Degree',
-                        style: TextStyle(fontSize: 12),
                       ),
                       Text(
                         '*',
                         style: TextStyle(
                           color: Colors.red,
                           fontWeight: FontWeight.bold,
-                          fontSize: 12,
                         ),
                       ),
                     ],
@@ -250,12 +239,11 @@ class _VerificationScreenState extends State<VerificationScreen2> {
                     ),
                     child: TextField(
                       controller: _degreeController,
-                      keyboardType: TextInputType.text,
+                      keyboardType: TextInputType.datetime,
                       decoration: InputDecoration(
                         border: InputBorder.none,
-                        contentPadding: EdgeInsets.all(screenHeight * 0.01),
+                        contentPadding: EdgeInsets.all(screenHeight * 0.015),
                       ),
-                      style: const TextStyle(fontSize: 12),
                     ),
                   ),
                   SizedBox(height: screenHeight * 0.02),
@@ -263,14 +251,12 @@ class _VerificationScreenState extends State<VerificationScreen2> {
                     children: [
                       Text(
                         'Passout Year',
-                        style: TextStyle(fontSize: 12),
                       ),
                       Text(
                         '*',
                         style: TextStyle(
                           color: Colors.red,
                           fontWeight: FontWeight.bold,
-                          fontSize: 12,
                         ),
                       ),
                     ],
@@ -284,12 +270,11 @@ class _VerificationScreenState extends State<VerificationScreen2> {
                     ),
                     child: TextField(
                       controller: _passYearController,
-                      keyboardType: TextInputType.number,
+                      keyboardType: TextInputType.text,
                       decoration: InputDecoration(
                         border: InputBorder.none,
-                        contentPadding: EdgeInsets.all(screenHeight * 0.01),
+                        contentPadding: EdgeInsets.all(screenHeight * 0.015),
                       ),
-                      style: const TextStyle(fontSize: 12),
                     ),
                   ),
                   SizedBox(height: screenHeight * 0.02),
@@ -297,9 +282,8 @@ class _VerificationScreenState extends State<VerificationScreen2> {
                     children: [
                       Container(
                         decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(8),
-                          border: Border.all(color: const Color(0xFFC1272D)),
-                        ),
+                            borderRadius: BorderRadius.circular(8),
+                            border: Border.all(color: const Color(0xFFC1272D))),
                         child: TextButton(
                           onPressed: () {
                             Navigator.of(context).pop();
@@ -308,9 +292,8 @@ class _VerificationScreenState extends State<VerificationScreen2> {
                           child: Text(
                             '< Edit Previous',
                             style: TextStyle(
-                              fontSize: screenHeight * 0.012,
-                              color: const Color(0xFFC1272D),
-                            ),
+                                fontSize: screenHeight * 0.015,
+                                color: const Color(0xFFC1272D)),
                           ),
                         ),
                       ),
@@ -324,7 +307,8 @@ class _VerificationScreenState extends State<VerificationScreen2> {
                           onPressed: () {
                             if (_isAllFieldsValid()) {
                               Navigator.of(context).push(MaterialPageRoute(
-                                  builder: (ctx) => const VerificationScreen3()));
+                                  builder: (ctx) =>
+                                      const VerificationScreen3()));
                             } else {
                               print('Please fill in all required fields.');
                               // Replace with your error handling logic here
@@ -333,9 +317,8 @@ class _VerificationScreenState extends State<VerificationScreen2> {
                           child: Text(
                             'Review & Verify >',
                             style: TextStyle(
-                              fontSize: screenHeight * 0.012,
-                              color: Colors.white,
-                            ),
+                                fontSize: screenHeight * 0.015,
+                                color: Colors.white),
                           ),
                         ),
                       ),
@@ -343,6 +326,9 @@ class _VerificationScreenState extends State<VerificationScreen2> {
                   ),
                 ],
               ),
+              const SizedBox(
+                height: 64,
+              )
             ],
           ),
         ),

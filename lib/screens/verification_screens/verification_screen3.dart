@@ -15,8 +15,7 @@ class _VerificationScreen3State extends State<VerificationScreen3> {
   final TextEditingController _domainController = TextEditingController();
 
   bool _isAllFieldsValid() {
-    return _idController.text.isNotEmpty &&
-        _domainController.text.isNotEmpty;
+    return _idController.text.isNotEmpty && _domainController.text.isNotEmpty;
   }
 
   @override
@@ -34,14 +33,14 @@ class _VerificationScreen3State extends State<VerificationScreen3> {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          'Review & Verify Your Profile',
-          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
+          'Verification Details',
+          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
         ),
         centerTitle: true,
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.all(8),
+          padding: const EdgeInsets.all(16),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -55,7 +54,7 @@ class _VerificationScreen3State extends State<VerificationScreen3> {
                       center: const Text(
                         '95%',
                         style: TextStyle(
-                            color: Colors.green, fontWeight: FontWeight.bold, fontSize: 12),
+                            color: Colors.green, fontWeight: FontWeight.bold),
                       ),
                       progressColor: Colors.green,
                       backgroundColor: Colors.grey.shade300,
@@ -63,34 +62,34 @@ class _VerificationScreen3State extends State<VerificationScreen3> {
                     SizedBox(height: screenHeight * 0.0075),
                     const Text(
                       'Harsh Pawar',
-                      style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold),
+                      style:
+                          TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                     ),
                     SizedBox(height: screenHeight * 0.0075),
                     Container(
-                      width: screenWidth * 0.2,
-                      height: screenHeight * 0.035,
+                      // height: screenHeight * 0.03,
                       decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(screenHeight * 0.035 / 2),
-                        border: Border.all(
-                          color: const Color(0xFFC1272D),
-                        ),
+                        borderRadius: BorderRadius.circular(screenWidth * 0.1),
+                        border: Border.all(color: const Color(0xFFC1272D)),
                       ),
                       child: Padding(
-                        padding: EdgeInsets.all(screenHeight * 0.005),
+                        padding: EdgeInsets.all(screenWidth * 0.01),
                         child: Row(
+                          mainAxisSize: MainAxisSize.min,
                           children: [
                             Icon(
-                              Icons.check_circle_outline_sharp,
+                              Icons.check_circle,
                               color: const Color(0xFFC1272D),
-                              size: screenHeight * 0.01,
+                              size: screenWidth * 0.02,
                             ),
                             Text(
-                              'Not verified',
+                              ' Not verified',
                               style: TextStyle(
                                 color: const Color(0xFFC1272D),
-                                fontSize: screenHeight * 0.01,
+                                fontSize: screenWidth *
+                                    0.02, // Adjusted based on screen width
                               ),
-                            )
+                            ),
                           ],
                         ),
                       ),
@@ -107,7 +106,7 @@ class _VerificationScreen3State extends State<VerificationScreen3> {
               SizedBox(height: screenHeight * 0.04),
               const Text(
                 'Last Step Verification',
-                style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
+                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                 textAlign: TextAlign.start,
               ),
               SizedBox(height: screenHeight * 0.02),
@@ -125,7 +124,6 @@ class _VerificationScreen3State extends State<VerificationScreen3> {
                         style: TextStyle(
                           color: Colors.red,
                           fontWeight: FontWeight.bold,
-                          fontSize: 12,
                         ),
                       ),
                     ],
@@ -139,12 +137,11 @@ class _VerificationScreen3State extends State<VerificationScreen3> {
                     ),
                     child: TextField(
                       controller: _idController,
-                      keyboardType: TextInputType.text,
+                      keyboardType: TextInputType.phone,
                       decoration: InputDecoration(
                         border: InputBorder.none,
                         contentPadding: EdgeInsets.all(screenHeight * 0.015),
                       ),
-                      style: const TextStyle(fontSize: 12),
                     ),
                   ),
                   SizedBox(height: screenHeight * 0.02),
@@ -152,14 +149,13 @@ class _VerificationScreen3State extends State<VerificationScreen3> {
                     children: [
                       Text(
                         'Interest Domain',
-                        style: TextStyle(fontSize: 12),
+                        style: TextStyle(),
                       ),
                       Text(
                         '*',
                         style: TextStyle(
                           color: Colors.red,
                           fontWeight: FontWeight.bold,
-                          fontSize: 12,
                         ),
                       ),
                     ],
@@ -173,63 +169,50 @@ class _VerificationScreen3State extends State<VerificationScreen3> {
                     ),
                     child: TextField(
                       controller: _domainController,
-                      keyboardType: TextInputType.text,
+                      keyboardType: TextInputType.phone,
                       decoration: InputDecoration(
                         border: InputBorder.none,
                         contentPadding: EdgeInsets.all(screenHeight * 0.015),
                       ),
-                      style: const TextStyle(fontSize: 12),
                     ),
                   ),
                   SizedBox(height: screenHeight * 0.02),
-                  Row(
-                    children: [
-                      Container(
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(8),
-                          border: Border.all(color: const Color(0xFFC1272D)),
-                        ),
-                        child: TextButton(
-                          onPressed: () {
-                            Navigator.of(context).pop();
+                  Center(
+                    child: Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(8),
+                        color: Colors.green,
+                      ),
+                      child: TextButton(
+                        onPressed: () {
+                          if (_isAllFieldsValid()) {
+                            Navigator.of(context).push(MaterialPageRoute(
+                                builder: (ctx) => const VerifiedPage()));
+                          } else {
+                            print('Please fill in all required fields.');
                             // Replace with your error handling logic here
-                          },
-                          child: Text(
-                            '< Edit Previous',
-                            style: TextStyle(
-                              fontSize: screenHeight * 0.012,
-                              color: const Color(0xFFC1272D),
+                          }
+                        },
+                        child: Row(
+                          mainAxisSize: MainAxisSize.min,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Image.asset('assets/new_releases (1).png'),
+                            SizedBox(width: screenWidth*0.02,),
+                            Text(
+                              'Submit and Proceed Payment >',
+                              style: TextStyle(
+                                  fontSize: screenHeight * 0.015,
+                                  color: Colors.white),
                             ),
-                          ),
+                          ],
                         ),
                       ),
-                      const Spacer(),
-                      Container(
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(8),
-                          color: const Color(0xFFC1272D),
-                        ),
-                        child: TextButton(
-                          onPressed: () {
-                            if (_isAllFieldsValid()) {
-                              Navigator.of(context).push(MaterialPageRoute(
-                                  builder: (ctx) => const VerifiedPage()));
-                            } else {
-                              print('Please fill in all required fields.');
-                              // Replace with your error handling logic here
-                            }
-                          },
-                          child: Text(
-                            'Review & Verify >',
-                            style: TextStyle(
-                              fontSize: screenHeight * 0.012,
-                              color: Colors.white,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ],
+                    ),
                   ),
+                  const SizedBox(
+                    height: 64,
+                  )
                 ],
               ),
             ],
